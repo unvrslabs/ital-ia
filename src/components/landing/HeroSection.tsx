@@ -118,12 +118,14 @@ export const HeroSection = () => {
               className="flex flex-col sm:flex-row items-start gap-4 mb-8"
             >
               <motion.a
-                href="#sectors"
+                href="https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20a%20una%20consulenza%20sulla%20transizione%20delle%20PMI%20verso%20l%27intelligenza%20artificiale.%20Possiamo%20fissare%20una%20call%20nei%20prossimi%20giorni%3F"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-premium flex items-center gap-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Scopri la piattaforma
+                Richiedi consulenza
                 <ArrowRight className="w-5 h-5" />
               </motion.a>
 
