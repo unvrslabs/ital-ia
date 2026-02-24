@@ -16,7 +16,7 @@ export const SovereignSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Sovrana</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
@@ -28,29 +28,32 @@ export const SovereignSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12">
-          {points.map((point, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="flex items-center gap-4 p-5 rounded-2xl liquid-glass-hover"
-            >
-              <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
-                <point.icon className="w-5 h-5 text-primary" />
-              </div>
-              <p className="text-foreground/90 text-sm font-medium">{point.text}</p>
-            </motion.div>
-          ))}
+        {/* Horizontal scrolling cards */}
+        <div className="overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
+          <div className="flex gap-4 min-w-max">
+            {points.map((point, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="flex items-center gap-4 p-5 rounded-2xl liquid-glass-hover w-[280px] flex-shrink-0"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
+                  <point.icon className="w-5 h-5 text-primary" />
+                </div>
+                <p className="text-foreground/90 text-sm font-medium">{point.text}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-primary font-semibold text-lg"
+          className="text-center text-primary font-semibold text-lg mt-10"
         >
           Solo AI sovrana, privata, controllabile.
         </motion.p>
