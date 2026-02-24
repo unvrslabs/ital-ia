@@ -5,7 +5,7 @@ const points = [
   { icon: ServerCrash, text: "Nessuna API verso OpenAI, Anthropic o terzi" },
   { icon: Lock, text: "Nessun training su dati condivisi" },
   { icon: Globe, text: "Nessun server fuori dall'Italia" },
-  { icon: ShieldCheck, text: "Nessun rischio di data leakage" },
+  { icon: ShieldCheck, text: "Nessun rischio di fuga di dati" },
 ];
 
 export const SovereignSection = () => {
@@ -18,10 +18,10 @@ export const SovereignSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">Sovereign AI</p>
+          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Sovrana</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Italy → AI. <br className="hidden md:block" />
-            <span className="text-muted-foreground">Without Compromises.</span>
+            Italia → AI. <br className="hidden md:block" />
+            <span className="text-muted-foreground">Senza Compromessi.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             La maggior parte delle aziende oggi usa "AI" tramite API esterne, modelli generici e server stranieri. Noi abbiamo scelto un'altra strada.

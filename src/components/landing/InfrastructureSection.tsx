@@ -19,10 +19,10 @@ export const InfrastructureSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">On-Premise Infrastructure</p>
+          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">Infrastruttura On-Premise</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Private AI. <br className="hidden md:block" />
-            <span className="text-muted-foreground">Fully Sovereign.</span>
+            AI Privata. <br className="hidden md:block" />
+            <span className="text-muted-foreground">Completamente Sovrana.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             L'intera piattaforma gira su infrastruttura dedicata ad alte prestazioni, basata su DGX Spark.

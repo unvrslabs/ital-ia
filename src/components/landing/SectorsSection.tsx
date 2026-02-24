@@ -5,10 +5,10 @@ const sectors = [
   { icon: Zap, label: "Energia" },
   { icon: Factory, label: "Industria" },
   { icon: Briefcase, label: "Servizi" },
-  { icon: Landmark, label: "Finance" },
-  { icon: ShoppingBag, label: "Retail" },
+  { icon: Landmark, label: "Finanza" },
+  { icon: ShoppingBag, label: "Commercio" },
   { icon: Truck, label: "Logistica" },
-  { icon: HeartPulse, label: "Healthcare" },
+  { icon: HeartPulse, label: "Sanità" },
   { icon: Building2, label: "Pubblica Amministrazione" },
   { icon: Wrench, label: "PMI manifatturiere" },
 ];
@@ -30,7 +30,7 @@ export const SectorsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">Proprietary LLMs</p>
+          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">LLM Proprietari</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             LLM verticali. <br className="hidden md:block" />
             <span className="text-muted-foreground">Per ogni settore.</span>

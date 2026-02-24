@@ -12,17 +12,17 @@ export const CTASection = () => {
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            The Future of Italian AI <br className="hidden md:block" />
-            <span className="text-muted-foreground">Starts Here.</span>
+            Il Futuro dell'AI Italiana <br className="hidden md:block" />
+            <span className="text-muted-foreground">Inizia Qui.</span>
           </h2>
           <p className="text-muted-foreground text-lg mb-4">
             L'intelligenza artificiale non è una moda. È un'infrastruttura strategica nazionale.
           </p>
 
           <div className="flex flex-col items-center gap-2 mb-10 text-foreground/80 font-medium">
-            <span>Built in Italy.</span>
-            <span>Running in Italy.</span>
-            <span className="text-primary font-semibold">Owned by you.</span>
+            <span>Costruita in Italia.</span>
+            <span>Eseguita in Italia.</span>
+            <span className="text-primary font-semibold">Di tua proprietà.</span>
           </div>
 
           <motion.a
