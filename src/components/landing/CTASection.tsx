@@ -27,6 +27,14 @@ export const CTASection = () => {
             <span className="text-primary font-semibold">Di tua proprietà.</span>
           </div>
 
+          <div className="inline-flex items-center gap-2 text-sm text-primary font-semibold mb-8 liquid-glass rounded-full px-5 py-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            </span>
+            Solo 5 slot disponibili questo mese
+          </div>
+
           <motion.a
             href={WA_URL}
             target="_blank"
@@ -38,6 +46,10 @@ export const CTASection = () => {
             Richiedi consulenza gratuita
             <ArrowRight className="w-5 h-5" />
           </motion.a>
+
+          <p className="text-muted-foreground text-sm mt-4">
+            ⚡ Risposta entro 24h
+          </p>
         </motion.div>
       </div>
     </section>
