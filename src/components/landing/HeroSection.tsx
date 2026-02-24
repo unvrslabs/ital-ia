@@ -240,7 +240,6 @@ export const HeroSection = () => {
                       <p className="font-semibold text-slate-900 text-sm">LLM Proprietari</p>
                       <p className="text-sm text-slate-500">Modelli <span className="text-primary font-semibold">verticali</span> per settore</p>
                     </div>
-                    <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-slate-600 transition-colors flex-shrink-0" />
                   </motion.div>
 
                   <motion.div
@@ -262,7 +261,7 @@ export const HeroSection = () => {
                       <p className="font-semibold text-slate-900 text-sm">Infrastruttura On-Premise</p>
                       <p className="text-sm text-slate-500">Basata su <span className="font-semibold text-slate-900">DGX Spark</span></p>
                     </div>
-                    <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-slate-600 transition-colors flex-shrink-0" />
+                    
                   </motion.div>
                 </div>
               </div>
