@@ -54,8 +54,8 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@unvrsitalia.it" className="text-muted-foreground text-sm hover:text-primary transition-colors flex items-center gap-2">
-                  <Mail className="w-4 h-4" /> info@unvrsitalia.it
+                <a href="mailto:emanuele@unvrslabs.dev" className="text-muted-foreground text-sm hover:text-primary transition-colors flex items-center gap-2">
+                  <Mail className="w-4 h-4" /> emanuele@unvrslabs.dev
                 </a>
               </li>
             </ul>
