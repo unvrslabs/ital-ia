@@ -31,24 +31,23 @@ export const HeroSection = () => {
             <span className="text-foreground">ITAL</span> <span className="text-primary">IA</span>
           </motion.h1>
 
-          {/* Subtitle */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium mb-6 max-w-2xl"
-          >
-            L'Infrastruttura AI per le Aziende Italiane
-          </motion.h2>
-
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
             className="text-base md:text-lg text-muted-foreground/80 max-w-xl mb-4 leading-relaxed"
           >
-            Sistemi AI proprietari, progettati, addestrati ed eseguiti interamente in Italia.
+            LLM proprietari per ogni settore, addestrati con i tuoi dati, eseguiti localmente su infrastruttura ad alte prestazioni.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-base md:text-lg text-foreground font-medium mb-2"
+          >
+            Zero cloud esteri. Zero compromessi.
           </motion.p>
 
           <motion.p
