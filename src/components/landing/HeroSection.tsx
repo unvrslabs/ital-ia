@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, Award, Flag } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { ParticleBackground } from "./ParticleBackground";
 import { TypewriterEffect } from "./TypewriterEffect";
@@ -124,13 +124,6 @@ export const HeroSection = () => {
                 <ArrowRight className="w-5 h-5" />
               </motion.a>
 
-              <motion.a
-                href="#sectors"
-                className="text-muted-foreground hover:text-foreground font-medium transition-colors flex items-center gap-1 py-4"
-                whileHover={{ x: 5 }}
-              >
-                Scopri la piattaforma →
-              </motion.a>
             </motion.div>
 
             <motion.div
@@ -140,12 +133,16 @@ export const HeroSection = () => {
               className="flex items-center gap-3 flex-wrap"
             >
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full liquid-glass text-xs text-muted-foreground">
-                <span>🇮🇹</span>
-                <span className="font-medium">Made in Italy</span>
+                <Award className="w-3.5 h-3.5 text-primary" />
+                <span className="font-medium">Partner Nvidia</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full liquid-glass text-xs text-muted-foreground">
                 <ShieldCheck className="w-3.5 h-3.5 text-primary" />
-                <span className="font-medium">100% Sovrana</span>
+                <span className="font-medium">GDPR & NIS2</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full liquid-glass text-xs text-muted-foreground">
+                <Flag className="w-3.5 h-3.5 text-primary" />
+                <span className="font-medium">Made in Italy</span>
               </div>
             </motion.div>
           </div>

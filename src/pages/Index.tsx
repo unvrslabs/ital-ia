@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { BandiMarquee } from "@/components/landing/BandiMarquee";
-import { SocialProofSection } from "@/components/landing/SocialProofSection";
+
 import { SovereignSection } from "@/components/landing/SovereignSection";
 import { SectorsSection } from "@/components/landing/SectorsSection";
 import { InfrastructureSection } from "@/components/landing/InfrastructureSection";
@@ -27,7 +27,6 @@ const Index = () => {
         <main role="main">
           <HeroSection />
           <BandiMarquee />
-          <SocialProofSection />
           <SovereignSection />
           <InlineCTA text="Vuoi proteggere i tuoi dati? Parliamone" />
           <SectorsSection />
