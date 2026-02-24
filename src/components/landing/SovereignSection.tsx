@@ -20,7 +20,7 @@ export const SovereignSection = () => {
         >
           <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Sovrana</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Ital → ia. <br className="hidden md:block" />
+            Ital → ia <br className="hidden md:block" />
             <span className="text-muted-foreground">Senza Compromessi.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
