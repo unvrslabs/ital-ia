@@ -32,7 +32,7 @@ export const SectorsSection = () => {
         >
           <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">LLM Proprietari</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            LLM verticali. <br className="hidden md:block" />
+            LLM verticali. <br />
             <span className="text-muted-foreground">Per ogni settore.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
