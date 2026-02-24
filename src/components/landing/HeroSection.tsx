@@ -194,7 +194,7 @@ export const HeroSection = () => {
                   transition={{ duration: 0.6, delay: 0.7 }}
                   className="text-center mb-4 relative z-10"
                 >
-                  <span className="text-lg font-semibold text-foreground/90">UNVRS <span className="text-primary">ITAL</span> IA</span>
+                  <span className="text-lg font-semibold text-foreground/90">ITAL <span className="text-primary">IA</span></span>
                 </motion.div>
 
                 {/* Counter */}
