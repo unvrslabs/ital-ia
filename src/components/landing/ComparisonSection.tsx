@@ -27,7 +27,7 @@ export const ComparisonSection = () => {
           </p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             AI generica vs{" "}
-            <span className="text-primary">UNVRS&nbsp;ITAL&nbsp;IA</span>
+            <span className="text-primary">ITAL&nbsp;IA</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Non tutti i modelli AI sono uguali. Ecco perché un LLM sovrano e&nbsp;dedicato fa la differenza.
@@ -39,7 +39,7 @@ export const ComparisonSection = () => {
           <div className="grid grid-cols-[1fr_100px_100px] md:grid-cols-[1fr_140px_140px] px-6 py-4 border-b border-border/30">
             <span className="text-sm text-muted-foreground font-medium">Funzionalità</span>
             <span className="text-sm text-muted-foreground font-medium text-center">AI Generica</span>
-            <span className="text-sm text-primary font-semibold text-center">UNVRS</span>
+            <span className="text-sm text-primary font-semibold text-center">ITAL IA</span>
           </div>
 
           {/* Rows */}
