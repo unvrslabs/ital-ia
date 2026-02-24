@@ -11,8 +11,8 @@ const siteLinks = [
 ];
 
 const legalLinks = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Cookie Policy", href: "#" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Cookie Policy", href: "/cookie" },
 ];
 
 export const Footer = () => {
