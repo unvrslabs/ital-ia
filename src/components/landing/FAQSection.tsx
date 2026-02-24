@@ -4,11 +4,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const faqs = [
   {
     q: "Cos'è ITAL IA?",
-    a: "ITAL IA è una piattaforma di intelligenza artificiale sovrana che addestra LLM proprietari sui dati aziendali del cliente, eseguiti interamente su infrastruttura on-premise in Italia. Nessun dato esce dal perimetro controllato.",
+    a: "ITAL IA è una piattaforma di intelligenza artificiale sovrana che addestra LLM proprietari sui dati aziendali del cliente. Il modello gira su un hardware Nvidia DGX Spark di proprietà del cliente, installato presso la sua sede. Nessun dato esce dal perimetro aziendale.",
   },
   {
     q: "In cosa si differenzia da ChatGPT o altri modelli generici?",
-    a: "I modelli generici inviano i tuoi dati su server esteri e offrono risposte generiche. ITAL IA addestra un modello dedicato esclusivamente sul tuo settore e sui tuoi dati, garantendo risposte precise, sicurezza totale e conformità normativa.",
+    a: "I modelli generici inviano i tuoi dati su server esteri e offrono risposte generiche. ITAL IA addestra un modello dedicato esclusivamente sul tuo settore e sui tuoi dati, eseguito su hardware tuo, garantendo risposte precise, sicurezza totale e conformità normativa.",
   },
   {
     q: "Quali settori supportate?",
@@ -16,15 +16,19 @@ const faqs = [
   },
   {
     q: "I miei dati sono al sicuro?",
-    a: "Assolutamente sì. L'intera infrastruttura gira su hardware dedicato (Nvidia DGX Spark) fisicamente situato in Italia. Nessun cloud estero, nessuna API verso terzi. Piena conformità GDPR e NIS2.",
+    a: "Assolutamente sì. Il cliente acquista direttamente l'hardware Nvidia DGX Spark e lo tiene nella propria sede. L'intera infrastruttura è fisicamente di proprietà dell'azienda. Nessun cloud estero, nessuna API verso terzi. Piena conformità GDPR e NIS2.",
+  },
+  {
+    q: "Chi compra l'hardware?",
+    a: "L'hardware Nvidia DGX Spark viene acquistato dal cliente e rimane di sua proprietà. Noi ci occupiamo della configurazione, dell'addestramento del modello e del supporto continuo. L'azienda ha il pieno controllo fisico e logico dell'infrastruttura.",
   },
   {
     q: "Quanto tempo serve per essere operativi?",
-    a: "Meno di una settimana. Dopo una consulenza iniziale, configuriamo e addestriamo il modello sui tuoi dati. Il sistema è operativo in pochi giorni, senza progetti IT complessi.",
+    a: "Dopo una consulenza iniziale, configuriamo e addestriamo il modello sui tuoi dati. Il sistema è operativo rapidamente, senza progetti IT complessi.",
   },
   {
     q: "Quanto costa?",
-    a: "Il costo dipende dalla complessità del progetto e dal volume di dati. Offriamo una consulenza iniziale gratuita per valutare insieme le tue esigenze e proporti la soluzione più adatta.",
+    a: "Il costo include l'acquisto dell'hardware DGX Spark da parte del cliente e il servizio di configurazione, addestramento e supporto da parte nostra. Offriamo una consulenza iniziale gratuita per valutare insieme le tue esigenze.",
   },
 ];
 

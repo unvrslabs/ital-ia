@@ -43,8 +43,9 @@ export const InfrastructureSection = () => {
               <span className="text-muted-foreground">Completamente Sovrana.</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              L'intera piattaforma gira su infrastruttura dedicata ad alte prestazioni, basata su{" "}
-              <span className="text-foreground font-semibold">Nvidia DGX Spark</span>.
+              Il cliente acquista l'hardware{" "}
+              <span className="text-foreground font-semibold">Nvidia DGX Spark</span>{" "}
+              e lo tiene nella propria sede. Noi configuriamo, addestriamo e supportiamo. Tu hai il pieno controllo.
             </p>
             <motion.a
               href={WA_URL}
