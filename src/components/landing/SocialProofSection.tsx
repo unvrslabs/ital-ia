@@ -14,15 +14,17 @@ const AnimatedCounter = ({ target }: { target: number }) => {
   const hasAnimated = useRef(false);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
-          const motionVal = { val: 0 };
-          const controls = animate(motionVal, { val: target }, {
+          const controls = animate(0, target, {
             duration: 2,
             ease: "easeOut",
-            onUpdate: (latest) => setCount(Math.round(latest.val)),
+            onUpdate: (v) => setCount(Math.round(v)),
           });
           return () => controls.stop();
         }
@@ -30,7 +32,7 @@ const AnimatedCounter = ({ target }: { target: number }) => {
       { threshold: 0.5 }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(el);
     return () => observer.disconnect();
   }, [target]);
 
