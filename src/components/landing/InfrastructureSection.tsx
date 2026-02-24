@@ -25,7 +25,8 @@ export const InfrastructureSection = () => {
             <span className="text-muted-foreground">Completamente Sovrana.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            L'intera piattaforma gira su infrastruttura dedicata ad alte prestazioni, basata su DGX Spark.
+            L'intera piattaforma gira su infrastruttura dedicata ad alte prestazioni, basata su<br />
+            <span className="text-foreground font-semibold">Nvidia DGX Spark</span>.
           </p>
         </motion.div>
 
