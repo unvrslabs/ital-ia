@@ -27,7 +27,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-[hsl(145,70%,45%)]">Ital</span> <span className="text-[hsl(0,65%,50%)]">IA</span>
+            <span className="text-foreground">Ital</span> <span className="text-primary">IA</span>
           </motion.h1>
 
           {/* Subtitle */}
