@@ -239,15 +239,15 @@
 
   .btn-secondary {
     @apply relative overflow-hidden px-8 py-4 rounded-full font-semibold transition-all duration-300;
-    background: hsl(222 47% 20%);
-    color: hsl(0 0% 100%);
-    box-shadow: 0 4px 20px hsl(222 47% 20% / 0.2);
+    background: hsl(158 64% 42% / 0.15);
+    color: hsl(158 64% 50%);
+    box-shadow: 0 0 0 1px hsl(158 64% 42% / 0.3) inset;
   }
 
   .btn-secondary:hover {
     transform: translateY(-2px);
-    background: hsl(222 47% 25%);
-    box-shadow: 0 8px 30px hsl(222 47% 20% / 0.3);
+    background: hsl(158 64% 42% / 0.25);
+    box-shadow: 0 0 0 1px hsl(158 64% 42% / 0.5) inset, 0 8px 30px hsl(158 64% 42% / 0.15);
   }
 
   /* Mesh gradient background - Dark blue sky theme */
