@@ -9,148 +9,153 @@ const steps = [
   { icon: BarChart3, label: "Output AI", sub: "Risposte precise e sicure" },
 ];
 
+// Positions for 4 nodes around a rounded rectangle path (responsive)
+const nodePositions = [
+  { cx: "15%", cy: "20%", labelY: -36 },   // top-left
+  { cx: "85%", cy: "20%", labelY: -36 },   // top-right
+  { cx: "85%", cy: "80%", labelY: 36 },    // bottom-right
+  { cx: "15%", cy: "80%", labelY: 36 },    // bottom-left
+];
+
 export const DataFlowDiagram = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const isInView = useInView(containerRef, { once: true, margin: "-80px" });
+
+  // Rounded rectangle path (clockwise) matching node positions
+  const pathD = "M 15,20 L 85,20 Q 95,20 95,30 L 95,70 Q 95,80 85,80 L 15,80 Q 5,80 5,70 L 5,30 Q 5,20 15,20 Z";
 
   return (
     <div className="max-w-4xl mx-auto mt-16" ref={containerRef}>
-      {/* Mobile: Vertical animated timeline */}
-      <div className="md:hidden relative">
-        {/* Animated vertical line */}
-        <div className="absolute left-8 top-0 bottom-0 w-[2px]">
-          <motion.div
-            className="w-full h-full bg-gradient-to-b from-primary via-primary/60 to-primary/20 origin-top"
-            initial={{ scaleY: 0 }}
-            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-          />
-          {/* Animated glow dot traveling down */}
-          <motion.div
-            className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_4px_hsla(158,64%,42%,0.5)]"
-            initial={{ top: "0%" }}
-            animate={isInView ? { top: ["0%", "100%"] } : { top: "0%" }}
-            transition={{ duration: 2.5, ease: "easeInOut", repeat: Infinity, repeatDelay: 1 }}
-          />
-        </div>
-
-        {/* Steps */}
-        <div className="space-y-8 relative">
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-              transition={{ delay: 0.3 + index * 0.3, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="flex items-center gap-5 pl-[3.25rem]"
-            >
-              {/* Node circle on the line */}
-              <motion.div
-                className="absolute left-[1.125rem] w-5 h-5 rounded-full border-2 border-primary bg-background flex items-center justify-center"
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
-                transition={{ delay: 0.4 + index * 0.3, type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <div className="w-2 h-2 rounded-full bg-primary" />
-              </motion.div>
-
-              {/* Card */}
-              <div className="flex-1 liquid-glass rounded-2xl p-5 flex items-center gap-4">
-                <motion.div
-                  className="w-12 h-12 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center flex-shrink-0"
-                  animate={isInView ? {
-                    boxShadow: [
-                      "0 0 0 0 hsla(158,64%,42%,0)",
-                      "0 0 16px 3px hsla(158,64%,42%,0.2)",
-                      "0 0 0 0 hsla(158,64%,42%,0)",
-                    ],
-                  } : {}}
-                  transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.5 }}
-                >
-                  <step.icon className="w-6 h-6 text-primary" />
-                </motion.div>
-                <div>
-                  <p className="text-foreground font-semibold text-sm">{step.label}</p>
-                  <p className="text-muted-foreground text-xs leading-tight">{step.sub}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Desktop: Horizontal with animated SVG path */}
-      <div className="hidden md:block relative">
-        {/* SVG animated connecting path */}
+      {/* Circuit-style diagram */}
+      <div className="relative w-full" style={{ paddingBottom: "60%" }}>
         <svg
-          className="absolute top-8 left-0 w-full h-4 pointer-events-none"
-          viewBox="0 0 800 16"
-          preserveAspectRatio="none"
+          className="absolute inset-0 w-full h-full"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid meet"
         >
-          <motion.path
-            d="M 100 8 L 700 8"
-            fill="none"
-            stroke="hsla(158,64%,42%,0.3)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <motion.path
-            d="M 100 8 L 700 8"
-            fill="none"
-            stroke="hsla(158,64%,42%,1)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            initial={{ pathLength: 0 }}
-            animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          />
-          {/* Traveling glow */}
-          <motion.circle
-            r="4"
-            fill="hsla(158,64%,42%,0.8)"
-            filter="url(#glow)"
-            initial={{ cx: 100, cy: 8 }}
-            animate={isInView ? { cx: [100, 700] } : { cx: 100 }}
-            transition={{ duration: 2.5, ease: "easeInOut", repeat: Infinity, repeatDelay: 1 }}
-          />
           <defs>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="blur" />
+            <filter id="nodeGlow">
+              <feGaussianBlur stdDeviation="1.5" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
+            <linearGradient id="pathGradient" gradientUnits="userSpaceOnUse" x1="5" y1="50" x2="95" y2="50">
+              <stop offset="0%" stopColor="hsla(158,64%,42%,0.15)" />
+              <stop offset="50%" stopColor="hsla(158,64%,42%,0.3)" />
+              <stop offset="100%" stopColor="hsla(158,64%,42%,0.15)" />
+            </linearGradient>
           </defs>
+
+          {/* Background path */}
+          <path
+            d={pathD}
+            fill="none"
+            stroke="url(#pathGradient)"
+            strokeWidth="0.4"
+            strokeLinecap="round"
+          />
+
+          {/* Animated traced path */}
+          <motion.path
+            d={pathD}
+            fill="none"
+            stroke="hsla(158,64%,42%,0.7)"
+            strokeWidth="0.5"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+            transition={{ duration: 2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          />
+
+          {/* Animated traveling dot */}
+          {isInView && (
+            <motion.circle
+              r="1"
+              fill="hsla(158,64%,42%,1)"
+              filter="url(#nodeGlow)"
+              initial={{ offsetDistance: "0%" }}
+              animate={{ offsetDistance: "100%" }}
+              style={{ offsetPath: `path("${pathD}")` } as any}
+            >
+              <animateMotion
+                dur="4s"
+                repeatCount="indefinite"
+                path={pathD}
+              />
+            </motion.circle>
+          )}
+
+          {/* Nodes */}
+          {steps.map((step, index) => {
+            const pos = nodePositions[index];
+            const cx = parseFloat(pos.cx);
+            const cy = parseFloat(pos.cy);
+
+            return (
+              <g key={index}>
+                {/* Pulse ring */}
+                <motion.circle
+                  cx={cx}
+                  cy={cy}
+                  r="5.5"
+                  fill="none"
+                  stroke="hsla(158,64%,42%,0.3)"
+                  strokeWidth="0.3"
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={isInView ? {
+                    scale: [1, 1.4, 1],
+                    opacity: [0.4, 0, 0.4],
+                  } : {}}
+                  transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.5 }}
+                  style={{ transformOrigin: `${cx}px ${cy}px` }}
+                />
+
+                {/* Node background circle */}
+                <motion.circle
+                  cx={cx}
+                  cy={cy}
+                  r="5"
+                  fill="hsla(158,64%,42%,0.08)"
+                  stroke="hsla(158,64%,42%,0.4)"
+                  strokeWidth="0.4"
+                  initial={{ scale: 0 }}
+                  animate={isInView ? { scale: 1 } : { scale: 0 }}
+                  transition={{ delay: 0.5 + index * 0.2, type: "spring", stiffness: 200, damping: 15 }}
+                  style={{ transformOrigin: `${cx}px ${cy}px` }}
+                />
+              </g>
+            );
+          })}
         </svg>
 
-        <div className="grid grid-cols-4 gap-0 items-start">
-          {steps.map((step, index) => (
+        {/* HTML overlay for icons and labels */}
+        {steps.map((step, index) => {
+          const pos = nodePositions[index];
+          const isTop = index < 2;
+
+          return (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.3 + index * 0.2, duration: 0.6 }}
-              className="flex flex-col items-center text-center"
+              className="absolute flex flex-col items-center"
+              style={{
+                left: pos.cx,
+                top: pos.cy,
+                transform: "translate(-50%, -50%)",
+              }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+              transition={{ delay: 0.6 + index * 0.2, type: "spring", stiffness: 200, damping: 15 }}
             >
-              <motion.div
-                className="w-16 h-16 rounded-2xl bg-primary/15 border border-primary/25 flex items-center justify-center mb-3"
-                animate={isInView ? {
-                  boxShadow: [
-                    "0 0 0 0 hsla(158,64%,42%,0)",
-                    "0 0 20px 4px hsla(158,64%,42%,0.2)",
-                    "0 0 0 0 hsla(158,64%,42%,0)",
-                  ],
-                } : {}}
-                transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.5 }}
-              >
-                <step.icon className="w-7 h-7 text-primary" />
-              </motion.div>
-              <p className="text-foreground font-semibold text-sm mb-1">{step.label}</p>
-              <p className="text-muted-foreground text-xs leading-tight max-w-[140px]">{step.sub}</p>
+              <step.icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
+              <div className={`absolute ${isTop ? "-top-10 md:-top-14" : "top-8 md:top-12"} text-center whitespace-nowrap`}>
+                <p className="text-foreground font-semibold text-[10px] md:text-sm">{step.label}</p>
+                <p className="text-muted-foreground text-[8px] md:text-xs leading-tight">{step.sub}</p>
+              </div>
             </motion.div>
-          ))}
-        </div>
+          );
+        })}
       </div>
 
       {/* DGX Spark specs */}
@@ -158,7 +163,7 @@ export const DataFlowDiagram = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3"
+        className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3"
       >
         {[
           { label: "GPU", value: "Blackwell" },
