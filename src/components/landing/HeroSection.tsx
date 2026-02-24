@@ -45,7 +45,7 @@ const WA_URL = "https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20inter
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden" aria-label="ITAL IA — Intelligenza Artificiale Sovrana per PMI Italiane">
       <div className="absolute inset-0 z-0">
         <ParticleBackground />
       </div>
@@ -76,6 +76,7 @@ export const HeroSection = () => {
             >
               <span className="text-foreground">ITAL</span>{" "}
               <span className="text-primary">IA</span>
+              <span className="sr-only"> — Intelligenza Artificiale Sovrana per PMI Italiane. LLM proprietari addestrati sui tuoi dati aziendali, eseguiti su hardware Nvidia DGX Spark nella tua sede.</span>
             </motion.h1>
 
             <motion.p

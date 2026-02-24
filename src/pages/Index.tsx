@@ -14,14 +14,14 @@ import { Footer } from "@/components/landing/Footer";
 const Index = () => {
   return (
     <div className="relative min-h-screen bg-background overflow-x-hidden">
-      <div className="fixed inset-0 mesh-gradient" />
-      <div className="fixed inset-0 aurora-bg pointer-events-none" />
-      <div className="grain-overlay" />
+      <div className="fixed inset-0 mesh-gradient" aria-hidden="true" />
+      <div className="fixed inset-0 aurora-bg pointer-events-none" aria-hidden="true" />
+      <div className="grain-overlay" aria-hidden="true" />
       
       <div className="relative z-10">
         <Navbar />
         
-        <main>
+        <main role="main">
           <HeroSection />
           <BandiMarquee />
           <SovereignSection />

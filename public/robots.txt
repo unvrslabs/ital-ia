@@ -1,3 +1,4 @@
+# Search Engines
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +11,29 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# AI Crawlers - Allow all for GEO visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 User-agent: *
 Allow: /
+
+Sitemap: https://italia-ia.it/sitemap.xml
