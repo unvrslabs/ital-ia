@@ -6,7 +6,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="text-foreground font-bold text-sm">
-            UNVRS <span className="text-primary">ITAL</span> IA
+            ITAL <span className="text-primary">IA</span>
           </span>
           <p className="text-muted-foreground text-sm flex items-center gap-1.5">
             Sviluppato con <Heart className="w-4 h-4 text-red-500 fill-red-500" /> da{" "}

@@ -1,36 +1,36 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/landing/HeroSection";
+import { BandiMarquee } from "@/components/landing/BandiMarquee";
 import { SovereignSection } from "@/components/landing/SovereignSection";
 import { SectorsSection } from "@/components/landing/SectorsSection";
 import { InfrastructureSection } from "@/components/landing/InfrastructureSection";
+import { HowItWorksSection } from "@/components/landing/HowItWorksSection";
 import { ComparisonSection } from "@/components/landing/ComparisonSection";
 import { PMISection } from "@/components/landing/PMISection";
+import { FAQSection } from "@/components/landing/FAQSection";
 import { CTASection } from "@/components/landing/CTASection";
 import { Footer } from "@/components/landing/Footer";
 
 const Index = () => {
   return (
     <div className="relative min-h-screen bg-background overflow-x-hidden">
-      {/* Modern mesh gradient background */}
       <div className="fixed inset-0 mesh-gradient" />
-      
-      {/* Subtle aurora effect */}
       <div className="fixed inset-0 aurora-bg pointer-events-none" />
-      
-      {/* Very subtle grain for texture */}
       <div className="grain-overlay" />
       
-      {/* Content */}
       <div className="relative z-10">
         <Navbar />
         
         <main>
           <HeroSection />
+          <BandiMarquee />
           <SovereignSection />
           <SectorsSection />
           <InfrastructureSection />
+          <HowItWorksSection />
           <ComparisonSection />
           <PMISection />
+          <FAQSection />
           <CTASection />
         </main>
         

@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Server, ShieldCheck, ChevronRight } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { ParticleBackground } from "./ParticleBackground";
 import { TypewriterEffect } from "./TypewriterEffect";
 
-const AnimatedNumber = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
+const AnimatedNumber = ({ value, suffix = "", prefix = "" }: { value: number; suffix?: string; prefix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -31,13 +31,21 @@ const AnimatedNumber = ({ value, suffix = "" }: { value: number; suffix?: string
     return () => observer.disconnect();
   }, [value, hasAnimated]);
 
-  return <span ref={ref}>{displayValue}{suffix}</span>;
+  return <span ref={ref}>{prefix}{displayValue}{suffix}</span>;
 };
+
+const stats = [
+  { value: 9, suffix: "+", label: "Settori coperti", sub: "Energia, Finanza, Sanità e altri" },
+  { value: 100, suffix: "%", label: "Dati in Italia", sub: "Zero cloud esteri, zero compromessi" },
+  { value: 128, suffix: " GB", label: "VRAM dedicata", sub: "Infrastruttura Nvidia DGX Spark" },
+  { value: 1000, suffix: "", label: "TOPS", sub: "Prestazioni computazionali massime" },
+];
+
+const WA_URL = "https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20a%20una%20consulenza%20sulla%20transizione%20delle%20PMI%20verso%20l%27intelligenza%20artificiale.%20Possiamo%20fissare%20una%20call%20nei%20prossimi%20giorni%3F";
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Neural network particle background */}
       <div className="absolute inset-0 z-0">
         <ParticleBackground />
       </div>
@@ -46,7 +54,6 @@ export const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen pt-32 pb-24 md:py-24">
           {/* Left Side - Text */}
           <div className="text-left">
-            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -61,7 +68,6 @@ export const HeroSection = () => {
               </div>
             </motion.div>
 
-            {/* Title */}
             <motion.h1
               className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-8"
               initial={{ opacity: 0, y: 60 }}
@@ -72,7 +78,6 @@ export const HeroSection = () => {
               <span className="text-primary">IA</span>
             </motion.h1>
 
-            {/* Typewriter subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -82,7 +87,6 @@ export const HeroSection = () => {
               LLM proprietari <TypewriterEffect />
             </motion.p>
 
-            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -96,21 +100,11 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-base md:text-lg text-foreground font-medium mb-3"
-            >
-              Zero cloud esteri. Zero&nbsp;compromessi.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
               className="text-base md:text-lg text-foreground font-medium mb-10"
             >
               Questa non è automazione. Questa è <span className="text-primary font-semibold">infrastruttura&nbsp;cognitiva</span>.
             </motion.p>
 
-            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -118,7 +112,7 @@ export const HeroSection = () => {
               className="flex flex-col sm:flex-row items-start gap-4 mb-8"
             >
               <motion.a
-                href="https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20a%20una%20consulenza%20sulla%20transizione%20delle%20PMI%20verso%20l%27intelligenza%20artificiale.%20Possiamo%20fissare%20una%20call%20nei%20prossimi%20giorni%3F"
+                href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-premium flex items-center gap-2"
@@ -130,15 +124,14 @@ export const HeroSection = () => {
               </motion.a>
 
               <motion.a
-                href="#sovereign"
+                href="#sectors"
                 className="text-muted-foreground hover:text-foreground font-medium transition-colors flex items-center gap-1 py-4"
                 whileHover={{ x: 5 }}
               >
-                Perché AI sovrana →
+                Scopri la piattaforma →
               </motion.a>
             </motion.div>
 
-            {/* Badges */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -156,128 +149,29 @@ export const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right Side - Glass Card */}
+          {/* Right Side - Stats Grid */}
           <motion.div
-            initial={{ opacity: 0, x: 60, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="flex justify-center"
+            className="grid grid-cols-2 gap-3 md:gap-4"
           >
-            <motion.div className="relative w-full max-w-md">
-              <div
-                className="relative rounded-[2rem] p-6 md:p-8 overflow-hidden"
-                style={{
-                  background: 'linear-gradient(135deg, hsl(0 0% 100% / 0.12) 0%, hsl(0 0% 100% / 0.06) 100%)',
-                  backdropFilter: 'blur(40px)',
-                  WebkitBackdropFilter: 'blur(40px)',
-                  border: '1px solid hsl(0 0% 100% / 0.25)',
-                  boxShadow: '0 32px 64px -12px hsl(220 30% 10% / 0.4), inset 0 1px 0 0 hsl(0 0% 100% / 0.15)'
-                }}
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 + index * 0.15, duration: 0.6 }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="liquid-glass rounded-2xl p-5 md:p-6 text-center cursor-default"
               >
-                {/* Glow */}
-                <motion.div
-                  className="absolute top-0 left-0 w-32 h-32 pointer-events-none"
-                  style={{
-                    background: 'radial-gradient(circle, hsl(158 64% 50% / 0.6) 0%, transparent 70%)',
-                    filter: 'blur(8px)',
-                  }}
-                  animate={{
-                    x: [-20, 80, -20],
-                    y: [-20, 40, -20],
-                    opacity: [0.4, 0.8, 0.4],
-                  }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                />
-
-                {/* Logo */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="text-center mb-4 relative z-10"
-                >
-                  <span className="text-lg font-semibold text-foreground/90">ITAL <span className="text-primary">IA</span></span>
-                </motion.div>
-
-                {/* Counter */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="text-center mb-8 relative z-10"
-                >
-                  <div className="relative inline-block">
-                    <motion.div
-                      className="absolute inset-0 rounded-2xl bg-primary/20 blur-2xl"
-                      animate={{ opacity: [0.3, 0.6, 0.3], scale: [0.9, 1.1, 0.9] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                    <p className="relative text-5xl md:text-7xl font-bold text-foreground tracking-tight">
-                      <AnimatedNumber value={9} suffix="+" />
-                    </p>
-                  </div>
-                  <p className="text-sm text-muted-foreground mt-2">Settori coperti</p>
-                </motion.div>
-
-                {/* Info Cards */}
-                <div className="space-y-3 relative z-10">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-center gap-4 p-4 rounded-2xl cursor-pointer group"
-                    style={{
-                      background: 'linear-gradient(135deg, hsl(0 0% 100% / 0.95) 0%, hsl(0 0% 100% / 0.9) 100%)',
-                      boxShadow: '0 4px 24px -4px hsl(220 30% 10% / 0.15)',
-                      border: '1px solid hsl(0 0% 90% / 0.8)'
-                    }}
-                  >
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-emerald-600 flex items-center justify-center flex-shrink-0">
-                      <Brain className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-slate-900 text-sm">LLM Proprietari</p>
-                      <p className="text-sm text-slate-500">Modelli <span className="text-primary font-semibold">verticali</span> per settore</p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 1.15 }}
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-center gap-4 p-4 rounded-2xl cursor-pointer group"
-                    style={{
-                      background: 'linear-gradient(135deg, hsl(0 0% 100% / 0.95) 0%, hsl(0 0% 100% / 0.9) 100%)',
-                      boxShadow: '0 4px 24px -4px hsl(220 30% 10% / 0.15)',
-                      border: '1px solid hsl(0 0% 90% / 0.8)'
-                    }}
-                  >
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center flex-shrink-0">
-                      <Server className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-slate-900 text-sm">Infrastruttura On-Premise</p>
-                      <p className="text-sm text-slate-500">Basata su <span className="font-semibold text-slate-900">DGX Spark</span></p>
-                    </div>
-                    
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Floating elements */}
-              <motion.div
-                className="absolute -top-6 -right-6 w-20 h-20 rounded-2xl bg-accent/20 backdrop-blur-sm border border-accent/30"
-                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute -bottom-4 -left-4 w-16 h-16 rounded-xl bg-primary/10 backdrop-blur-sm border border-primary/20"
-                animate={{ y: [0, 8, 0], rotate: [0, -3, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              />
-            </motion.div>
+                <p className="text-3xl md:text-4xl font-bold text-primary mb-1 tracking-tight">
+                  <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+                </p>
+                <p className="text-foreground font-semibold text-sm mb-1">{stat.label}</p>
+                <p className="text-muted-foreground text-xs leading-tight">{stat.sub}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>
