@@ -29,7 +29,7 @@ export const SovereignSection = () => {
         </motion.div>
 
         {/* Horizontal scrolling cards */}
-        <div className="overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
+        <div className="overflow-x-auto pb-0 -mx-4 px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
           <div className="flex gap-4 min-w-max">
             {points.map((point, index) => (
               <motion.div
