@@ -24,7 +24,7 @@ export const SovereignSection = () => {
             <span className="text-muted-foreground">Senza Compromessi.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            La maggior parte delle aziende oggi usa "AI" tramite API esterne, modelli generici e server stranieri. Noi abbiamo scelto un'altra strada.
+            La maggior parte delle aziende oggi usa "AI" tramite API esterne, modelli generici e server stranieri. Noi abbiamo scelto un'altra&nbsp;strada.
           </p>
         </motion.div>
 
