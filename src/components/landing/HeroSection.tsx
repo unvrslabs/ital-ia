@@ -35,10 +35,10 @@ const AnimatedNumber = ({ value, suffix = "", prefix = "" }: { value: number; su
 };
 
 const stats = [
-  { value: 9, suffix: "+", label: "Settori coperti", sub: "Energia, Finanza, Sanità e altri" },
-  { value: 100, suffix: "%", label: "Dati in Italia", sub: "Zero cloud esteri, zero compromessi" },
-  { value: 128, suffix: " GB", label: "VRAM dedicata", sub: "Infrastruttura Nvidia DGX Spark" },
-  { value: 1000, suffix: "", label: "TOPS", sub: "Prestazioni computazionali massime" },
+  { value: 78, suffix: "%", label: "PMI senza AI", sub: "Delle PMI italiane non usa ancora intelligenza artificiale" },
+  { value: 40, suffix: "%", label: "Riduzione costi", sub: "Risparmio medio delle aziende che adottano AI nei processi" },
+  { value: 3, suffix: "x", label: "Produttività", sub: "Aumento medio della produttività con AI dedicata" },
+  { value: 2026, suffix: "", label: "Obbligo NIS2", sub: "Scadenza per la conformità alla direttiva europea sulla sicurezza" },
 ];
 
 const WA_URL = "https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20a%20una%20consulenza%20sulla%20transizione%20delle%20PMI%20verso%20l%27intelligenza%20artificiale.%20Possiamo%20fissare%20una%20call%20nei%20prossimi%20giorni%3F";
