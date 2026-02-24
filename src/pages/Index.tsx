@@ -11,7 +11,7 @@ import { PMISection } from "@/components/landing/PMISection";
 import { FAQSection } from "@/components/landing/FAQSection";
 import { CTASection } from "@/components/landing/CTASection";
 import { Footer } from "@/components/landing/Footer";
-import { FloatingCTA } from "@/components/landing/FloatingCTA";
+
 import { InlineCTA } from "@/components/landing/InlineCTA";
 
 const Index = () => {
@@ -42,8 +42,6 @@ const Index = () => {
         
         <Footer />
       </div>
-
-      <FloatingCTA />
     </div>
   );
 };
