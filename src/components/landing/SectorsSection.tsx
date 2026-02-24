@@ -36,7 +36,7 @@ export const SectorsSection = () => {
             <span className="text-muted-foreground">Per ogni settore.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ogni settore ha linguaggi, processi e logiche diverse. Per questo non usiamo modelli generalisti.
+            Ogni settore ha linguaggi, processi e logiche diverse. Per questo non usiamo modelli&nbsp;generalisti.
           </p>
         </motion.div>
 
