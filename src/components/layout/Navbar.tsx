@@ -109,14 +109,26 @@ export const Navbar = () => {
         )}
       >
         <span className="text-foreground font-bold text-lg">ITAL <span className="text-primary">IA</span></span>
-        <motion.button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="text-foreground p-2 rounded-full liquid-glass"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </motion.button>
+        <div className="flex items-center gap-2">
+          <motion.a
+            href="https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20a%20una%20consulenza%20sulla%20transizione%20delle%20PMI%20verso%20l%27intelligenza%20artificiale.%20Possiamo%20fissare%20una%20call%20nei%20prossimi%20giorni%3F"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-1.5 text-xs font-semibold text-primary-foreground bg-gradient-to-r from-primary to-primary/80 rounded-full"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Contattaci
+          </motion.a>
+          <motion.button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-foreground p-2 rounded-full liquid-glass"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </motion.button>
+        </div>
       </motion.div>
 
       {/* Mobile Menu - Liquid Glass Panel */}
