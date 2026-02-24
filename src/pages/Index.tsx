@@ -1,10 +1,10 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/landing/HeroSection";
-import { BandiMarquee } from "@/components/landing/BandiMarquee";
-import { ProblemSolutionSection } from "@/components/landing/ProblemSolutionSection";
-import { FeaturesSection } from "@/components/landing/FeaturesSection";
-import { HowItWorksSection } from "@/components/landing/HowItWorksSection";
-import { PricingSection } from "@/components/landing/PricingSection";
+import { SovereignSection } from "@/components/landing/SovereignSection";
+import { SectorsSection } from "@/components/landing/SectorsSection";
+import { InfrastructureSection } from "@/components/landing/InfrastructureSection";
+import { PMISection } from "@/components/landing/PMISection";
+import { CTASection } from "@/components/landing/CTASection";
 import { Footer } from "@/components/landing/Footer";
 
 const Index = () => {
@@ -25,6 +25,11 @@ const Index = () => {
         
         <main>
           <HeroSection />
+          <SovereignSection />
+          <SectorsSection />
+          <InfrastructureSection />
+          <PMISection />
+          <CTASection />
         </main>
         
         <Footer />

@@ -5,11 +5,10 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Home", href: "#" },
-  { label: "Vantaggi", href: "#problem" },
-  { label: "Servizi", href: "#features" },
-  { label: "Come Funziona", href: "#how-it-works" },
-  { label: "Offerte", href: "#pricing" },
-  { label: "Contatti", href: "#contact" },
+  { label: "Sovereign AI", href: "#sovereign" },
+  { label: "Settori", href: "#sectors" },
+  { label: "Infrastruttura", href: "#infrastructure" },
+  { label: "PMI", href: "#pmi" },
 ];
 
 export const Navbar = () => {
@@ -51,8 +50,8 @@ export const Navbar = () => {
       >
         {/* Logo */}
         <a href="#" className="pr-4 pl-2">
-          <span className="text-lg font-bold text-primary">
-            OK Energia
+          <span className="text-lg font-bold text-foreground">
+            UNVRS·<span className="text-primary">italI</span>A
           </span>
         </a>
         
@@ -91,12 +90,12 @@ export const Navbar = () => {
         <div className="w-px h-5 bg-white/15 mx-1" />
         
         <motion.a
-          href="/login"
+          href="mailto:info@unvrs.it"
           className="px-5 py-2 text-sm font-semibold text-primary-foreground bg-gradient-to-r from-primary to-primary/80 rounded-full transition-all duration-300"
-          whileHover={{ scale: 1.05, boxShadow: '0 8px 24px hsl(38 92% 50% / 0.4)' }}
+          whileHover={{ scale: 1.05, boxShadow: '0 8px 24px hsl(158 64% 42% / 0.4)' }}
           whileTap={{ scale: 0.98 }}
         >
-          Accedi
+          Contattaci
         </motion.a>
       </motion.div>
 
@@ -107,7 +106,7 @@ export const Navbar = () => {
           "liquid-glass-nav"
         )}
       >
-        <span className="text-primary font-bold text-lg">OK Energia</span>
+        <span className="text-foreground font-bold text-lg">UNVRS·<span className="text-primary">italI</span>A</span>
         <motion.button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="text-foreground p-2 rounded-full liquid-glass"
@@ -149,13 +148,13 @@ export const Navbar = () => {
               ))}
               <div className="h-px bg-white/10 my-2" />
               <motion.a
-                href="/login"
+                href="mailto:info@unvrs.it"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
                 className="px-4 py-3 rounded-xl text-base font-semibold text-center text-primary-foreground bg-gradient-to-r from-primary to-primary/80"
               >
-                Accedi
+                Contattaci
               </motion.a>
             </div>
           </motion.div>
