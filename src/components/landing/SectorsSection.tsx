@@ -1,17 +1,18 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Zap, Factory, Briefcase, Landmark, ShoppingBag, Truck, HeartPulse, Building2, Wrench } from "lucide-react";
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
 
 const sectors = [
-  { icon: Zap, label: "Energia", detail: "Ottimizzazione predittiva dei consumi, manutenzione preventiva degli impianti e gestione intelligente delle reti&nbsp;energetiche." },
-  { icon: Factory, label: "Industria", detail: "Controllo qualità automatizzato, ottimizzazione della supply chain e pianificazione della produzione basata su dati&nbsp;reali." },
-  { icon: Briefcase, label: "Servizi", detail: "Automazione dei processi documentali, assistenti intelligenti per il customer care e analisi predittiva dei&nbsp;trend." },
-  { icon: Landmark, label: "Finanza", detail: "Analisi del rischio in tempo reale, compliance automatizzata e rilevamento delle frodi con modelli&nbsp;dedicati." },
-  { icon: ShoppingBag, label: "Commercio", detail: "Personalizzazione dell'esperienza d'acquisto, gestione intelligente dell'inventario e pricing&nbsp;dinamico." },
-  { icon: Truck, label: "Logistica", detail: "Ottimizzazione dei percorsi, previsione della domanda e gestione automatizzata del&nbsp;magazzino." },
-  { icon: HeartPulse, label: "Sanità", detail: "Supporto diagnostico, analisi di cartelle cliniche e gestione ottimizzata delle risorse&nbsp;ospedaliere." },
-  { icon: Building2, label: "Pubblica Amministrazione", detail: "Digitalizzazione dei processi burocratici, assistenti virtuali per i cittadini e analisi dei dati&nbsp;territoriali." },
-  { icon: Wrench, label: "PMI manifatturiere", detail: "Manutenzione predittiva, controllo qualità visivo e ottimizzazione dei processi produttivi su&nbsp;misura." },
+  { icon: Zap, label: "Energia", detail: "Ottimizzazione predittiva dei consumi, manutenzione preventiva degli impianti e gestione intelligente delle reti energetiche.", benefits: ["Riduzione consumi fino al 30%", "Manutenzione predittiva impianti", "Gestione smart delle reti", "Previsione domanda energetica"] },
+  { icon: Factory, label: "Industria", detail: "Controllo qualità automatizzato, ottimizzazione della supply chain e pianificazione della produzione basata su dati reali.", benefits: ["Controllo qualità visivo AI", "Ottimizzazione supply chain", "Pianificazione produzione", "Riduzione scarti e sprechi"] },
+  { icon: Briefcase, label: "Servizi", detail: "Automazione dei processi documentali, assistenti intelligenti per il customer care e analisi predittiva dei trend.", benefits: ["Automazione documentale", "Assistenti AI per clienti", "Analisi predittiva trend", "Ottimizzazione workflow"] },
+  { icon: Landmark, label: "Finanza", detail: "Analisi del rischio in tempo reale, compliance automatizzata e rilevamento delle frodi con modelli dedicati.", benefits: ["Risk analysis real-time", "Compliance automatizzata", "Fraud detection avanzato", "Report automatizzati"] },
+  { icon: ShoppingBag, label: "Commercio", detail: "Personalizzazione dell'esperienza d'acquisto, gestione intelligente dell'inventario e pricing dinamico.", benefits: ["Personalizzazione UX", "Gestione inventario smart", "Pricing dinamico AI", "Previsione trend vendite"] },
+  { icon: Truck, label: "Logistica", detail: "Ottimizzazione dei percorsi, previsione della domanda e gestione automatizzata del magazzino.", benefits: ["Route optimization", "Demand forecasting", "Warehouse automation", "Tracking intelligente"] },
+  { icon: HeartPulse, label: "Sanità", detail: "Supporto diagnostico, analisi di cartelle cliniche e gestione ottimizzata delle risorse ospedaliere.", benefits: ["Supporto diagnostico AI", "Analisi cartelle cliniche", "Ottimizzazione risorse", "Telemedicina avanzata"] },
+  { icon: Building2, label: "Pubblica Amministrazione", detail: "Digitalizzazione dei processi burocratici, assistenti virtuali per i cittadini e analisi dei dati territoriali.", benefits: ["Digitalizzazione processi", "Assistenti virtuali", "Analisi dati territoriali", "Semplificazione burocrazia"] },
+  { icon: Wrench, label: "PMI manifatturiere", detail: "Manutenzione predittiva, controllo qualità visivo e ottimizzazione dei processi produttivi su misura.", benefits: ["Manutenzione predittiva", "Quality control visivo", "Ottimizzazione processi", "Riduzione fermi macchina"] },
 ];
 
 const features = [
@@ -69,32 +70,50 @@ export const SectorsSection = () => {
           ))}
         </div>
 
-        {/* Detail panel */}
-        <AnimatePresence>
-          {selectedSector !== null && (
-            <motion.div
-              initial={{ opacity: 0, height: 0, y: -10 }}
-              animate={{ opacity: 1, height: "auto", y: 0 }}
-              exit={{ opacity: 0, height: 0, y: -10 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-3xl mx-auto mb-10 overflow-hidden"
-            >
-              <div className="liquid-glass-card p-6 md:p-8">
-                <div className="flex items-center gap-3 mb-3">
-                  {(() => {
-                    const Icon = sectors[selectedSector].icon;
-                    return <Icon className="w-5 h-5 text-primary" />;
-                  })()}
-                  <h3 className="text-foreground font-semibold text-lg">{sectors[selectedSector].label}</h3>
+        {/* Drawer for sector details */}
+        <Drawer open={selectedSector !== null} onOpenChange={(open) => { if (!open) setSelectedSector(null); }}>
+          <DrawerContent className="max-h-[85vh]">
+            {selectedSector !== null && (() => {
+              const sector = sectors[selectedSector];
+              const Icon = sector.icon;
+              return (
+                <div className="px-6 pb-8 pt-2">
+                  <DrawerHeader className="px-0">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <DrawerTitle className="text-xl font-bold text-foreground">{sector.label}</DrawerTitle>
+                    </div>
+                  </DrawerHeader>
+                  <DrawerDescription className="text-muted-foreground text-base leading-relaxed mb-6">
+                    {sector.detail}
+                  </DrawerDescription>
+                  <div className="space-y-3">
+                    <p className="text-xs tracking-[0.2em] uppercase text-primary font-semibold">Vantaggi chiave</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {sector.benefits.map((benefit, i) => (
+                        <div key={i} className="flex items-center gap-2 p-3 rounded-xl liquid-glass">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                          <span className="text-sm text-foreground/90">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <motion.a
+                    href="https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20a%20una%20consulenza%20sulla%20transizione%20delle%20PMI%20verso%20l%27intelligenza%20artificiale.%20Possiamo%20fissare%20una%20call%20nei%20prossimi%20giorni%3F"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-premium flex items-center justify-center gap-2 w-full mt-6"
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Richiedi consulenza per {sector.label}
+                  </motion.a>
                 </div>
-                <p
-                  className="text-muted-foreground leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: sectors[selectedSector].detail }}
-                />
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              );
+            })()}
+          </DrawerContent>
+        </Drawer>
 
         {/* Features */}
         <motion.div
