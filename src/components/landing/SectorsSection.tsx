@@ -15,10 +15,10 @@ const sectors = [
 ];
 
 const features = [
-  "Progettato su misura",
-  "Addestrato con dati reali del cliente",
-  "Ottimizzato per i processi specifici",
-  "Isolato e dedicato",
+  { text: "Progettato su misura", icon: "🎯" },
+  { text: "Addestrato con dati reali del cliente", icon: "📊" },
+  { text: "Ottimizzato per i processi specifici", icon: "⚙️" },
+  { text: "Isolato e dedicato", icon: "🔒" },
 ];
 
 export const SectorsSection = () => {
@@ -101,20 +101,35 @@ export const SectorsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="liquid-glass-card p-8 md:p-10 max-w-2xl mx-auto"
+          className="max-w-3xl mx-auto"
         >
-          <p className="text-sm text-muted-foreground mb-4">Ogni modello viene</p>
-          <div className="space-y-3 mb-6">
+          <h3 className="text-center text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-6">
+            Ogni modello viene
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                <p className="text-foreground font-medium">{feature}</p>
-              </div>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.04, y: -3 }}
+                className="liquid-glass-hover rounded-2xl p-5 text-center flex flex-col items-center gap-3"
+              >
+                <span className="text-2xl">{feature.icon}</span>
+                <p className="text-foreground font-medium text-sm leading-tight">{feature.text}</p>
+              </motion.div>
             ))}
           </div>
-          <p className="text-muted-foreground text-sm italic">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center text-muted-foreground text-sm italic mt-8"
+          >
             Il risultato è un sistema che ragiona come l'azienda, non come un&nbsp;chatbot.
-          </p>
+          </motion.p>
         </motion.div>
       </div>
     </section>
