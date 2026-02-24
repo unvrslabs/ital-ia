@@ -28,9 +28,9 @@ export const SovereignSection = () => {
           </p>
         </motion.div>
 
-        {/* Horizontal scrolling cards */}
-        <div className="overflow-x-auto pb-0 -mx-4 px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
-          <div className="flex gap-4 min-w-max">
+        {/* Cards grid - centered on desktop, scrollable on mobile */}
+        <div className="overflow-x-auto pb-0 -mx-4 px-4 md:overflow-visible md:mx-0 md:px-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
+          <div className="flex gap-4 min-w-max md:min-w-0 md:grid md:grid-cols-4 md:max-w-5xl md:mx-auto">
             {points.map((point, index) => (
               <motion.div
                 key={index}
@@ -38,7 +38,7 @@ export const SovereignSection = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-center gap-4 p-5 rounded-2xl liquid-glass-hover w-[280px] flex-shrink-0"
+                className="flex items-center gap-4 p-5 rounded-2xl liquid-glass-hover w-[280px] md:w-auto flex-shrink-0"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
                   <point.icon className="w-5 h-5 text-primary" />
