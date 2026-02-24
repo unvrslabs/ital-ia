@@ -86,8 +86,8 @@ export const InfrastructureSection = () => {
             {pipeline.map((step, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="liquid-glass rounded-2xl p-5 w-[200px] md:w-auto flex-shrink-0 md:flex-shrink"
@@ -108,8 +108,8 @@ export const InfrastructureSection = () => {
             {specs.map((spec, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="liquid-glass rounded-xl p-4 text-center w-[160px] md:w-auto flex-shrink-0 md:flex-shrink"
