@@ -16,7 +16,7 @@ export const HeroSection = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full liquid-glass text-sm text-muted-foreground">
               <span className="w-2 h-2 rounded-full bg-primary" />
               <span className="w-2 h-2 rounded-full bg-primary/60" />
-              <span className="ml-1">Sovereign AI Infrastructure</span>
+              <span className="ml-1">Infrastruttura AI Sovrana</span>
             </div>
           </motion.div>
 
@@ -37,7 +37,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium mb-6 max-w-2xl"
           >
-            The AI Infrastructure for Italian Businesses
+            L'Infrastruttura AI per le Aziende Italiane
           </motion.h2>
 
           {/* Description */}
@@ -92,7 +92,7 @@ export const HeroSection = () => {
             transition={{ duration: 1, delay: 1.2 }}
             className="mt-24 text-xs md:text-sm tracking-[0.3em] uppercase text-muted-foreground/50 font-medium"
           >
-            Italy → AI. Without Compromises.
+            Italia → AI. Senza Compromessi.
           </motion.p>
         </div>
       </div>

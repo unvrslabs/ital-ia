@@ -25,7 +25,7 @@ export const PMISection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">Built for Scale</p>
+          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">Progettato per Crescere</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             Per le PMI italiane. <br className="hidden md:block" />
             <span className="text-muted-foreground">Progettato per crescere.</span>
@@ -76,7 +76,7 @@ export const PMISection = () => {
           viewport={{ once: true }}
           className="text-center text-muted-foreground text-lg font-medium max-w-lg mx-auto"
         >
-          Non vendiamo tool. <span className="text-foreground">Costruiamo sistemi intelligenti permanenti.</span>
+          Non vendiamo strumenti. <span className="text-foreground">Costruiamo sistemi intelligenti permanenti.</span>
         </motion.p>
       </div>
     </section>
