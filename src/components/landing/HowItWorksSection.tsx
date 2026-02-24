@@ -34,8 +34,8 @@ export const HowItWorksSection = () => {
         >
           <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">Come Funziona</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Operativo in meno <br className="hidden md:block" />
-            <span className="text-muted-foreground">di una settimana.</span>
+            Semplice. <br className="hidden md:block" />
+            <span className="text-muted-foreground">Veloce. Efficace.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Nessun progetto IT complesso. Nessuna migrazione.&nbsp;ITAL&nbsp;IA si adatta a&nbsp;te.
