@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Brain, Server, ShieldCheck, ChevronRight } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
+import { ParticleBackground } from "./ParticleBackground";
+import { TypewriterEffect } from "./TypewriterEffect";
 
 const AnimatedNumber = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -35,6 +37,11 @@ const AnimatedNumber = ({ value, suffix = "" }: { value: number; suffix?: string
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Neural network particle background */}
+      <div className="absolute inset-0 z-0">
+        <ParticleBackground />
+      </div>
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen pt-32 pb-24 md:py-24">
           {/* Left Side - Text */}
@@ -65,6 +72,16 @@ export const HeroSection = () => {
               <span className="text-primary">IA</span>
             </motion.h1>
 
+            {/* Typewriter subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.45 }}
+              className="text-xl md:text-2xl text-foreground/90 mb-6"
+            >
+              LLM proprietari <TypewriterEffect />
+            </motion.p>
+
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -72,7 +89,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-base md:text-lg text-muted-foreground/80 max-w-lg mb-4 leading-relaxed"
             >
-              LLM proprietari per ogni settore, addestrati con i tuoi dati, eseguiti localmente su infrastruttura ad alte prestazioni.
+              Addestrati con i tuoi dati, eseguiti localmente su infrastruttura ad alte&nbsp;prestazioni.
             </motion.p>
 
             <motion.p
@@ -81,7 +98,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-base md:text-lg text-foreground font-medium mb-3"
             >
-              Zero cloud esteri. Zero compromessi.
+              Zero cloud esteri. Zero&nbsp;compromessi.
             </motion.p>
 
             <motion.p
@@ -90,7 +107,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.7 }}
               className="text-base md:text-lg text-foreground font-medium mb-10"
             >
-              Questa non è automazione. Questa è <span className="text-primary font-semibold">infrastruttura cognitiva</span>.
+              Questa non è automazione. Questa è <span className="text-primary font-semibold">infrastruttura&nbsp;cognitiva</span>.
             </motion.p>
 
             {/* CTA */}

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Server, ShieldCheck, Cloud, Scale, Cpu } from "lucide-react";
+import { DataFlowDiagram } from "./DataFlowDiagram";
 
 const points = [
   { icon: Server, text: "I modelli girano localmente" },
@@ -48,14 +49,17 @@ export const InfrastructureSection = () => {
           ))}
         </div>
 
+        {/* Data Flow Diagram */}
+        <DataFlowDiagram />
+
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-foreground font-semibold text-xl max-w-lg mx-auto"
+          className="text-center text-foreground font-semibold text-xl max-w-lg mx-auto mt-12"
         >
           L'AI non è "connessa" alla tua azienda.{" "}
-          <span className="text-primary">È dentro la tua azienda.</span>
+          <span className="text-primary">È dentro la tua&nbsp;azienda.</span>
         </motion.p>
       </div>
     </section>
