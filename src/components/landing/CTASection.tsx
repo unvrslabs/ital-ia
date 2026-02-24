@@ -1,0 +1,41 @@
+import { motion } from "framer-motion";
+import { Mail } from "lucide-react";
+
+export const CTASection = () => {
+  return (
+    <section className="py-24 md:py-32 relative">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto"
+        >
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            The Future of Italian AI <br className="hidden md:block" />
+            <span className="text-muted-foreground">Starts Here.</span>
+          </h2>
+          <p className="text-muted-foreground text-lg mb-4">
+            L'intelligenza artificiale non è una moda. È un'infrastruttura strategica nazionale.
+          </p>
+
+          <div className="flex flex-col items-center gap-2 mb-10 text-foreground/80 font-medium">
+            <span>Built in Italy.</span>
+            <span>Running in Italy.</span>
+            <span className="text-primary font-semibold">Owned by you.</span>
+          </div>
+
+          <motion.a
+            href="mailto:info@unvrs.it"
+            className="btn-premium inline-flex items-center gap-2"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Mail className="w-5 h-5" />
+            Contattaci
+          </motion.a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
