@@ -14,8 +14,9 @@ export const HeroSection = () => {
             className="mb-8"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full liquid-glass text-sm text-muted-foreground">
-              <span className="w-2 h-2 rounded-full bg-primary" />
-              <span className="w-2 h-2 rounded-full bg-primary/60" />
+              <span className="w-2 h-2 rounded-full bg-[hsl(145,70%,45%)]" />
+              <span className="w-2 h-2 rounded-full bg-foreground" />
+              <span className="w-2 h-2 rounded-full bg-[hsl(0,65%,50%)]" />
               <span className="ml-1">Infrastruttura AI Sovrana</span>
             </div>
           </motion.div>
