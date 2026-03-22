@@ -258,7 +258,7 @@
       radial-gradient(ellipse at 50% 60%, hsl(158 64% 42% / 0.06) 0%, transparent 50%),
       radial-gradient(ellipse at 85% 80%, hsl(158 50% 40% / 0.1) 0%, transparent 45%),
       radial-gradient(ellipse at 10% 90%, hsl(170 40% 45% / 0.08) 0%, transparent 50%),
-      linear-gradient(180deg, hsl(220 40% 10%) 0%, hsl(220 35% 7%) 50%, hsl(220 30% 5%) 100%);
+      linear-gradient(180deg, hsl(215 35% 12%) 0%, hsl(215 35% 10%) 50%, hsl(215 35% 9%) 100%);
   }
 
   /* Animated gradient border */
