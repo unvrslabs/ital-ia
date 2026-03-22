@@ -69,23 +69,22 @@ const AgentCard = ({ agent, onCall }: { agent: VoiceAgent; onCall: (agent: Voice
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 flex flex-col items-center text-center cursor-default"
+      className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 flex flex-col cursor-default"
     >
-      <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 mb-4">
-        <img
-          src={agent.photo}
-          alt={agent.name}
-          className="w-full h-full object-cover"
-        />
+      <div className="flex items-start gap-4 mb-4">
+        <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/30 flex-shrink-0">
+          <img src={agent.photo} alt={agent.name} className="w-full h-full object-cover" />
+        </div>
+        <div className="min-w-0">
+          <h3 className="text-foreground font-bold text-lg">{agent.name}</h3>
+          <p className="text-primary text-xs font-medium">{agent.sector}</p>
+        </div>
       </div>
-
-      <h3 className="text-foreground font-bold text-lg">{agent.name}</h3>
-      <p className="text-primary text-xs font-medium mb-3">{agent.sector}</p>
 
       <p className="text-muted-foreground text-sm leading-relaxed mb-1">{agent.role}</p>
       <p className="text-muted-foreground/60 text-xs leading-relaxed mb-6">{agent.desc}</p>
 
-      <div className="mt-auto w-full">
+      <div className="mt-auto">
         <motion.button
           onClick={() => onCall(agent)}
           whileHover={{ scale: 1.03 }}
