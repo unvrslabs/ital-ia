@@ -178,7 +178,7 @@ export const VoiceAgentsSection = () => {
           <p className="text-muted-foreground text-lg leading-relaxed">
             Prova in 30 secondi cosa può fare un agente per la tua azienda.
             <br className="hidden md:block" />
-            Seleziona un settore e inizia a parlare.
+            Seleziona un settore e inizia a&nbsp;parlare.
           </p>
         </motion.div>
 
