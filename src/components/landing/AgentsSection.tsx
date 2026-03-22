@@ -386,7 +386,8 @@ export const AgentsSection = () => {
           className="text-center mt-20"
         >
           <p className="text-2xl md:text-4xl font-bold text-foreground max-w-3xl mx-auto leading-snug">
-            Non sostituiamo le persone.{" "}
+            Non sostituiamo le persone.
+            <br />
             <span className="text-primary">Le liberiamo.</span>
           </p>
           <p className="text-muted-foreground text-base mt-4 max-w-lg mx-auto">
