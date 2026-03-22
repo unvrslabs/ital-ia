@@ -70,20 +70,21 @@ export const AgentsSection = () => {
         {/* Bento grid layout — asymmetric */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto mb-16">
           {/* First card — large, spans 2 cols on lg */}
+          {/* First card — large, spans 2 cols */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className="lg:col-span-2 rounded-3xl p-8 md:p-10 border border-green-500/30 bg-gradient-to-br from-green-500/20 to-emerald-500/5 backdrop-blur-sm relative overflow-hidden group cursor-default"
+            className="lg:col-span-2 rounded-3xl p-8 md:p-10 border border-white/10 bg-white/[0.06] backdrop-blur-sm relative overflow-hidden group cursor-default"
           >
-            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/8 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex items-start justify-between mb-6">
-              <div className="w-14 h-14 rounded-2xl bg-primary/15 border border-primary/20 flex items-center justify-center">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <MessageSquare className="w-7 h-7 text-primary" />
               </div>
-              <Sparkles className="w-5 h-5 text-primary/40 group-hover:text-primary transition-colors" />
+              <Sparkles className="w-5 h-5 text-white/20 group-hover:text-primary/60 transition-colors" />
             </div>
             <h3 className="text-foreground font-bold text-2xl mb-3">Vendite & Lead</h3>
             <p className="text-muted-foreground text-base leading-relaxed max-w-md">Qualifica lead, risponde ai clienti, gestisce il funnel 24/7.</p>
@@ -96,10 +97,10 @@ export const AgentsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className="rounded-3xl p-8 border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-cyan-500/5 backdrop-blur-sm group cursor-default"
+            className="rounded-3xl p-8 border border-white/10 bg-white/[0.04] backdrop-blur-sm group cursor-default"
           >
-            <div className="w-12 h-12 rounded-2xl bg-blue-500/15 border border-blue-500/20 flex items-center justify-center mb-5">
-              <FileText className="w-6 h-6 text-blue-400" />
+            <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5">
+              <FileText className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-foreground font-bold text-lg mb-2">Amministrazione</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">Documenti, fatture, contratti e pratiche in automatico.</p>
@@ -112,10 +113,10 @@ export const AgentsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className="rounded-3xl p-8 border border-purple-500/30 bg-gradient-to-br from-purple-500/20 to-violet-500/5 backdrop-blur-sm group cursor-default"
+            className="rounded-3xl p-8 border border-white/10 bg-white/[0.04] backdrop-blur-sm group cursor-default"
           >
-            <div className="w-12 h-12 rounded-2xl bg-purple-500/15 border border-purple-500/20 flex items-center justify-center mb-5">
-              <Headphones className="w-6 h-6 text-purple-400" />
+            <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5">
+              <Headphones className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-foreground font-bold text-lg mb-2">Customer Care</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">Supporto intelligente che risolve e scala solo quando serve.</p>
@@ -128,11 +129,11 @@ export const AgentsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className="lg:row-span-2 rounded-3xl p-8 border border-amber-500/30 bg-gradient-to-br from-amber-500/20 to-yellow-500/5 backdrop-blur-sm flex flex-col justify-between group cursor-default"
+            className="lg:row-span-2 rounded-3xl p-8 border border-white/10 bg-white/[0.04] backdrop-blur-sm flex flex-col justify-between group cursor-default"
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/20 flex items-center justify-center mb-5">
-                <Users className="w-6 h-6 text-amber-400" />
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5">
+                <Users className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-foreground font-bold text-lg mb-2">HR & Recruiting</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">Screening CV, colloqui, onboarding e richieste interne.</p>
@@ -150,27 +151,27 @@ export const AgentsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.25 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className="rounded-3xl p-8 border border-rose-500/30 bg-gradient-to-br from-rose-500/20 to-pink-500/5 backdrop-blur-sm group cursor-default"
+            className="rounded-3xl p-8 border border-white/10 bg-white/[0.04] backdrop-blur-sm group cursor-default"
           >
-            <div className="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-500/20 flex items-center justify-center mb-5">
-              <Workflow className="w-6 h-6 text-rose-400" />
+            <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5">
+              <Workflow className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-foreground font-bold text-lg mb-2">Operazioni</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">Approvazioni, report, KPI e alert automatizzati.</p>
           </motion.div>
 
-          {/* Sixth card — Custom */}
+          {/* Sixth card — Custom with subtle glow */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className="rounded-3xl p-8 border border-primary/30 bg-gradient-to-br from-primary/15 to-primary/5 backdrop-blur-sm relative overflow-hidden group cursor-default"
+            className="rounded-3xl p-8 border border-primary/20 bg-primary/[0.06] backdrop-blur-sm relative overflow-hidden group cursor-default"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(158_64%_42%/0.15),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(158_64%_42%/0.08),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="relative z-10">
-              <div className="w-12 h-12 rounded-2xl bg-primary/15 border border-primary/20 flex items-center justify-center mb-5 animate-pulse-glow">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 animate-pulse-glow">
                 <Bot className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-foreground font-bold text-lg mb-2">Custom Agent</h3>

@@ -3,10 +3,10 @@ import { Server, ShieldCheck, Cloud, Scale, Cpu, Database, Brain, BarChart3, Arr
 import { useRef } from "react";
 
 const pipeline = [
-  { icon: Database, title: "Dati aziendali", sub: "I tuoi dati restano tuoi", accent: "text-blue-400", bg: "bg-blue-500/15" },
-  { icon: Cpu, title: "Training locale", sub: "Su infrastruttura DGX Spark", accent: "text-purple-400", bg: "bg-purple-500/15" },
-  { icon: Brain, title: "LLM dedicato", sub: "Modello proprietario verticale", accent: "text-amber-400", bg: "bg-amber-500/15" },
-  { icon: BarChart3, title: "Output AI", sub: "Risposte precise e sicure", accent: "text-primary", bg: "bg-primary/15" },
+  { icon: Database, title: "Dati aziendali", sub: "I tuoi dati restano tuoi" },
+  { icon: Cpu, title: "Training locale", sub: "Su infrastruttura DGX Spark" },
+  { icon: Brain, title: "LLM dedicato", sub: "Modello proprietario verticale" },
+  { icon: BarChart3, title: "Output AI", sub: "Risposte precise e sicure" },
 ];
 
 const specs = [
@@ -68,8 +68,8 @@ export const InfrastructureSection = () => {
                   whileHover={{ y: -6, transition: { duration: 0.3 } }}
                   className="w-[160px] md:w-auto md:flex-1 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-5 md:p-6 text-center cursor-default"
                 >
-                  <div className={`w-12 h-12 rounded-xl ${step.bg} flex items-center justify-center mx-auto mb-3`}>
-                    <step.icon className={`w-6 h-6 ${step.accent}`} />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                    <step.icon className="w-6 h-6 text-primary" />
                   </div>
                   <p className="text-foreground font-semibold text-sm mb-1">{step.title}</p>
                   <p className="text-muted-foreground text-xs">{step.sub}</p>
