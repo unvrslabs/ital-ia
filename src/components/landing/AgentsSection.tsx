@@ -2,51 +2,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Bot, MessageSquare, FileText, Users, Workflow, Headphones, ArrowRight, Sparkles } from "lucide-react";
 import { useRef } from "react";
 
-const agents = [
-  {
-    icon: MessageSquare,
-    title: "Vendite & Lead",
-    desc: "Qualifica lead, risponde ai clienti, gestisce il funnel 24/7.",
-    color: "from-green-500/20 to-emerald-500/5",
-    borderColor: "border-green-500/30",
-  },
-  {
-    icon: FileText,
-    title: "Amministrazione",
-    desc: "Documenti, fatture, contratti e pratiche in automatico.",
-    color: "from-blue-500/20 to-cyan-500/5",
-    borderColor: "border-blue-500/30",
-  },
-  {
-    icon: Headphones,
-    title: "Customer Care",
-    desc: "Supporto intelligente che risolve e scala solo quando serve.",
-    color: "from-purple-500/20 to-violet-500/5",
-    borderColor: "border-purple-500/30",
-  },
-  {
-    icon: Users,
-    title: "HR & Recruiting",
-    desc: "Screening CV, colloqui, onboarding e richieste interne.",
-    color: "from-amber-500/20 to-yellow-500/5",
-    borderColor: "border-amber-500/30",
-  },
-  {
-    icon: Workflow,
-    title: "Operazioni",
-    desc: "Approvazioni, report, KPI e alert automatizzati.",
-    color: "from-rose-500/20 to-pink-500/5",
-    borderColor: "border-rose-500/30",
-  },
-  {
-    icon: Bot,
-    title: "Custom Agent",
-    desc: "Se lo fai a mano, lo può fare un agente. Su misura per te.",
-    color: "from-teal-500/20 to-emerald-500/5",
-    borderColor: "border-teal-500/30",
-  },
-];
-
 const WA_URL = "https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20al%20servizio%20AI%20Company%20con%20agenti%20AI%20per%20la%20mia%20azienda.%20Possiamo%20fissare%20una%20call%3F";
 
 export const AgentsSection = () => {
@@ -121,33 +76,33 @@ export const AgentsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className={`lg:col-span-2 rounded-3xl p-8 md:p-10 border ${agents[0].borderColor} bg-gradient-to-br ${agents[0].color} backdrop-blur-sm relative overflow-hidden group cursor-default`}
+            className="lg:col-span-2 rounded-3xl p-8 md:p-10 border border-green-500/30 bg-gradient-to-br from-green-500/20 to-emerald-500/5 backdrop-blur-sm relative overflow-hidden group cursor-default"
           >
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex items-start justify-between mb-6">
               <div className="w-14 h-14 rounded-2xl bg-primary/15 border border-primary/20 flex items-center justify-center">
-                <agents[0].icon className="w-7 h-7 text-primary" />
+                <MessageSquare className="w-7 h-7 text-primary" />
               </div>
               <Sparkles className="w-5 h-5 text-primary/40 group-hover:text-primary transition-colors" />
             </div>
-            <h3 className="text-foreground font-bold text-2xl mb-3">{agents[0].title}</h3>
-            <p className="text-muted-foreground text-base leading-relaxed max-w-md">{agents[0].desc}</p>
+            <h3 className="text-foreground font-bold text-2xl mb-3">Vendite & Lead</h3>
+            <p className="text-muted-foreground text-base leading-relaxed max-w-md">Qualifica lead, risponde ai clienti, gestisce il funnel 24/7.</p>
           </motion.div>
 
-          {/* Second card — normal */}
+          {/* Second card */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className={`rounded-3xl p-8 border ${agents[1].borderColor} bg-gradient-to-br ${agents[1].color} backdrop-blur-sm group cursor-default`}
+            className="rounded-3xl p-8 border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-cyan-500/5 backdrop-blur-sm group cursor-default"
           >
             <div className="w-12 h-12 rounded-2xl bg-blue-500/15 border border-blue-500/20 flex items-center justify-center mb-5">
-              <agents[1].icon className="w-6 h-6 text-blue-400" />
+              <FileText className="w-6 h-6 text-blue-400" />
             </div>
-            <h3 className="text-foreground font-bold text-lg mb-2">{agents[1].title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{agents[1].desc}</p>
+            <h3 className="text-foreground font-bold text-lg mb-2">Amministrazione</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">Documenti, fatture, contratti e pratiche in automatico.</p>
           </motion.div>
 
           {/* Third card */}
@@ -157,30 +112,30 @@ export const AgentsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className={`rounded-3xl p-8 border ${agents[2].borderColor} bg-gradient-to-br ${agents[2].color} backdrop-blur-sm group cursor-default`}
+            className="rounded-3xl p-8 border border-purple-500/30 bg-gradient-to-br from-purple-500/20 to-violet-500/5 backdrop-blur-sm group cursor-default"
           >
             <div className="w-12 h-12 rounded-2xl bg-purple-500/15 border border-purple-500/20 flex items-center justify-center mb-5">
-              <agents[2].icon className="w-6 h-6 text-purple-400" />
+              <Headphones className="w-6 h-6 text-purple-400" />
             </div>
-            <h3 className="text-foreground font-bold text-lg mb-2">{agents[2].title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{agents[2].desc}</p>
+            <h3 className="text-foreground font-bold text-lg mb-2">Customer Care</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">Supporto intelligente che risolve e scala solo quando serve.</p>
           </motion.div>
 
-          {/* Fourth card — tall, spans 2 rows on lg */}
+          {/* Fourth card — tall */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className={`lg:row-span-2 rounded-3xl p-8 border ${agents[3].borderColor} bg-gradient-to-br ${agents[3].color} backdrop-blur-sm flex flex-col justify-between group cursor-default`}
+            className="lg:row-span-2 rounded-3xl p-8 border border-amber-500/30 bg-gradient-to-br from-amber-500/20 to-yellow-500/5 backdrop-blur-sm flex flex-col justify-between group cursor-default"
           >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/20 flex items-center justify-center mb-5">
-                <agents[3].icon className="w-6 h-6 text-amber-400" />
+                <Users className="w-6 h-6 text-amber-400" />
               </div>
-              <h3 className="text-foreground font-bold text-lg mb-2">{agents[3].title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{agents[3].desc}</p>
+              <h3 className="text-foreground font-bold text-lg mb-2">HR & Recruiting</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">Screening CV, colloqui, onboarding e richieste interne.</p>
             </div>
             <div className="mt-8 pt-6 border-t border-white/10">
               <p className="text-xs text-muted-foreground/60 uppercase tracking-wider">Integrato con</p>
@@ -195,16 +150,16 @@ export const AgentsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.25 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className={`rounded-3xl p-8 border ${agents[4].borderColor} bg-gradient-to-br ${agents[4].color} backdrop-blur-sm group cursor-default`}
+            className="rounded-3xl p-8 border border-rose-500/30 bg-gradient-to-br from-rose-500/20 to-pink-500/5 backdrop-blur-sm group cursor-default"
           >
             <div className="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-500/20 flex items-center justify-center mb-5">
-              <agents[4].icon className="w-6 h-6 text-rose-400" />
+              <Workflow className="w-6 h-6 text-rose-400" />
             </div>
-            <h3 className="text-foreground font-bold text-lg mb-2">{agents[4].title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{agents[4].desc}</p>
+            <h3 className="text-foreground font-bold text-lg mb-2">Operazioni</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">Approvazioni, report, KPI e alert automatizzati.</p>
           </motion.div>
 
-          {/* Sixth card — Custom with special styling */}
+          {/* Sixth card — Custom */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -216,10 +171,10 @@ export const AgentsSection = () => {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(158_64%_42%/0.15),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="relative z-10">
               <div className="w-12 h-12 rounded-2xl bg-primary/15 border border-primary/20 flex items-center justify-center mb-5 animate-pulse-glow">
-                <agents[5].icon className="w-6 h-6 text-primary" />
+                <Bot className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-foreground font-bold text-lg mb-2">{agents[5].title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{agents[5].desc}</p>
+              <h3 className="text-foreground font-bold text-lg mb-2">Custom Agent</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">Se lo fai a mano, lo può fare un agente. Su misura per te.</p>
             </div>
           </motion.div>
         </div>
