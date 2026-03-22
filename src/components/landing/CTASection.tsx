@@ -11,7 +11,7 @@ export const CTASection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-3xl mx-auto rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-xl p-10 md:p-14 relative overflow-hidden"
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             Pronto a trasformare <br className="hidden md:block" />
