@@ -77,8 +77,8 @@ export const Navbar = () => {
                 layoutId="activeTab"
                 className="absolute inset-0 rounded-full liquid-glass"
                 style={{
-                  background: 'linear-gradient(135deg, hsl(38 92% 50% / 0.15) 0%, hsl(38 92% 50% / 0.05) 100%)',
-                  border: '1px solid hsl(38 92% 50% / 0.25)'
+                  background: 'linear-gradient(135deg, hsl(158 64% 42% / 0.15) 0%, hsl(158 64% 42% / 0.05) 100%)',
+                  border: '1px solid hsl(158 64% 42% / 0.25)'
                 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
