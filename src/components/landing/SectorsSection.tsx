@@ -149,7 +149,9 @@ export const SectorsSection = () => {
             viewport={{ once: true }}
             className="text-center text-muted-foreground text-sm italic mt-8"
           >
-            Il risultato è un sistema che ragiona come l'azienda, non come un&nbsp;chatbot.
+            Il risultato è un sistema che ragiona come l'azienda,
+            <br />
+            non come un&nbsp;chatbot.
           </motion.p>
         </motion.div>
       </div>
