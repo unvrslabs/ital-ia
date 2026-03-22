@@ -51,7 +51,7 @@ export const Navbar = () => {
         {/* Logo */}
         <a href="#" className="pr-4 pl-2">
           <span className="text-lg font-bold text-foreground">
-            Go Ital <span className="text-primary">IA</span>
+            <span className="text-red-500">GO</span> <span className="text-white">ITAL</span> <span className="text-green-500">IA</span>
           </span>
         </a>
         
@@ -108,7 +108,7 @@ export const Navbar = () => {
           "liquid-glass-nav"
         )}
       >
-        <span className="text-foreground font-bold text-lg">Go Ital <span className="text-primary">IA</span></span>
+        <span className="text-foreground font-bold text-lg"><span className="text-red-500">GO</span> <span className="text-white">ITAL</span> <span className="text-green-500">IA</span></span>
         <div className="flex items-center gap-2">
           <motion.a
             href="https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20a%20una%20consulenza%20sulla%20transizione%20delle%20PMI%20verso%20l%27intelligenza%20artificiale.%20Possiamo%20fissare%20una%20call%20nei%20prossimi%20giorni%3F"

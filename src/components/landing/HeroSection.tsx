@@ -74,8 +74,9 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-foreground">Go Ital</span>{" "}
-              <span className="text-primary">IA</span>
+              <span className="text-red-500">GO</span>{" "}
+              <span className="text-white">ITAL</span>{" "}
+              <span className="text-green-500">IA</span>
               <span className="sr-only"> — Intelligenza Artificiale Sovrana per PMI Italiane. LLM proprietari addestrati sui tuoi dati aziendali, eseguiti su hardware Nvidia DGX Spark nella tua sede.</span>
             </motion.h1>
 
