@@ -28,7 +28,6 @@ const Index = () => {
           <HeroSection />
           <BandiMarquee />
           <AgentsSection />
-          <InlineCTA text="Vuoi automatizzare i processi della tua azienda? Parliamone" />
           <SovereignSection />
           <InlineCTA text="Vuoi il controllo totale sui tuoi dati? Parliamone" />
           <SectorsSection />
