@@ -1,19 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Server, ShieldCheck, Cloud, Scale, Cpu, Database, Brain, BarChart3, ArrowRight } from "lucide-react";
-
-const points = [
-  { icon: Server, title: "I modelli girano localmente" },
-  { icon: ShieldCheck, title: "I dati non escono mai dal perimetro controllato" },
-  { icon: Cloud, title: "Nessuna dipendenza da cloud esteri" },
-  { icon: Scale, title: "Piena conformità normativa" },
-  { icon: Cpu, title: "Massime prestazioni computazionali" },
-];
+import { useRef } from "react";
 
 const pipeline = [
-  { icon: Database, title: "Dati aziendali", sub: "I tuoi dati restano tuoi" },
-  { icon: Cpu, title: "Training locale", sub: "Su infrastruttura DGX Spark" },
-  { icon: Brain, title: "LLM dedicato", sub: "Modello proprietario verticale" },
-  { icon: BarChart3, title: "Output AI", sub: "Risposte precise e sicure" },
+  { icon: Database, title: "Dati aziendali", sub: "I tuoi dati restano tuoi", accent: "text-blue-400", bg: "bg-blue-500/15" },
+  { icon: Cpu, title: "Training locale", sub: "Su infrastruttura DGX Spark", accent: "text-purple-400", bg: "bg-purple-500/15" },
+  { icon: Brain, title: "LLM dedicato", sub: "Modello proprietario verticale", accent: "text-amber-400", bg: "bg-amber-500/15" },
+  { icon: BarChart3, title: "Output AI", sub: "Risposte precise e sicure", accent: "text-primary", bg: "bg-primary/15" },
 ];
 
 const specs = [
@@ -26,110 +19,107 @@ const specs = [
 const WA_URL = "https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20a%20una%20consulenza%20sulla%20transizione%20delle%20PMI%20verso%20l%27intelligenza%20artificiale.%20Possiamo%20fissare%20una%20call%20nei%20prossimi%20giorni%3F";
 
 export const InfrastructureSection = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const x = useTransform(scrollYProgress, [0, 1], [200, -200]);
+
   return (
-    <section id="infrastructure" className="py-24 md:py-32 relative">
+    <section id="infrastructure" ref={ref} className="py-24 md:py-40 relative overflow-hidden">
+      {/* Scrolling background text */}
+      <motion.div
+        style={{ x }}
+        className="absolute top-1/3 whitespace-nowrap pointer-events-none select-none"
+      >
+        <span className="text-[10rem] md:text-[16rem] font-black text-white/[0.015] leading-none tracking-tighter">
+          DGX SPARK
+        </span>
+      </motion.div>
+
       <div className="container mx-auto px-4 relative z-10">
-        {/* Top: Two columns — text left, feature cards right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
-          {/* Left — Header + CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">Infrastruttura On-Premise</p>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              AI Privata. <br />
-              <span className="text-muted-foreground">Completamente Sovrana.</span>
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Il cliente acquista l'hardware{" "}
-              <span className="text-foreground font-semibold">Nvidia DGX Spark</span>{" "}
-              e lo tiene nella propria sede. Noi configuriamo, addestriamo e supportiamo. Tu hai il pieno controllo.
-            </p>
-            <motion.a
-              href={WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-premium inline-flex items-center gap-2"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Richiedi consulenza
-              <ArrowRight className="w-5 h-5" />
-            </motion.a>
-          </motion.div>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mb-20"
+        >
+          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">Infrastruttura</p>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground leading-[1.05] mb-6">
+            AI Privata.{" "}
+            <span className="text-muted-foreground">Completamente Sovrana.</span>
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Il cliente acquista l'hardware{" "}
+            <span className="text-foreground font-semibold">Nvidia DGX Spark</span>{" "}
+            e lo tiene nella propria sede. Noi configuriamo, addestriamo e supportiamo.
+          </p>
+        </motion.div>
 
-          {/* Right — Stacked feature cards */}
-          <div className="space-y-3">
-            {points.map((point, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="flex items-center gap-4 p-4 rounded-2xl liquid-glass"
-              >
-                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
-                  <point.icon className="w-5 h-5 text-primary" />
-                </div>
-                <p className="text-foreground/90 text-sm font-medium">{point.title}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Pipeline cards — horizontal scroll on mobile, grid on desktop */}
-        <div className="overflow-x-auto -mx-4 px-4 mb-8" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-          <div className="flex md:grid md:grid-cols-4 gap-3 min-w-max md:min-w-0">
+        {/* Pipeline — horizontal flow with arrows */}
+        <div className="overflow-x-auto -mx-4 px-4 mb-16" style={{ scrollbarWidth: 'none' }}>
+          <div className="flex items-center gap-2 md:gap-4 min-w-max md:min-w-0 max-w-5xl mx-auto">
             {pipeline.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="liquid-glass rounded-2xl p-5 w-[200px] md:w-auto flex-shrink-0 md:flex-shrink"
-              >
-                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center mb-3">
-                  <step.icon className="w-5 h-5 text-primary" />
-                </div>
-                <p className="text-foreground font-semibold text-sm mb-1">{step.title}</p>
-                <p className="text-muted-foreground text-xs leading-tight">{step.sub}</p>
-              </motion.div>
+              <div key={index} className="flex items-center gap-2 md:gap-4">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15, duration: 0.5, type: "spring" }}
+                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                  className="w-[160px] md:w-auto md:flex-1 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-5 md:p-6 text-center cursor-default"
+                >
+                  <div className={`w-12 h-12 rounded-xl ${step.bg} flex items-center justify-center mx-auto mb-3`}>
+                    <step.icon className={`w-6 h-6 ${step.accent}`} />
+                  </div>
+                  <p className="text-foreground font-semibold text-sm mb-1">{step.title}</p>
+                  <p className="text-muted-foreground text-xs">{step.sub}</p>
+                </motion.div>
+                {index < pipeline.length - 1 && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + index * 0.15 }}
+                  >
+                    <ArrowRight className="w-5 h-5 text-primary/40 flex-shrink-0" />
+                  </motion.div>
+                )}
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Specs row */}
-        <div className="overflow-x-auto -mx-4 px-4 mb-12" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-          <div className="flex md:grid md:grid-cols-4 gap-3 min-w-max md:min-w-0">
-            {specs.map((spec, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="liquid-glass rounded-xl p-4 text-center w-[160px] md:w-auto flex-shrink-0 md:flex-shrink"
-              >
-                <p className="text-primary font-bold text-lg">{spec.value}</p>
-                <p className="text-muted-foreground text-xs mt-1">{spec.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        {/* Specs — inline badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-3 mb-16"
+        >
+          {specs.map((spec, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              className="px-6 py-3 rounded-full border border-primary/20 bg-primary/5 cursor-default"
+            >
+              <span className="text-muted-foreground text-sm">{spec.label}: </span>
+              <span className="text-primary font-bold text-sm">{spec.value}</span>
+            </motion.div>
+          ))}
+        </motion.div>
 
-        <motion.p
+        {/* Closing statement */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-foreground font-semibold text-xl max-w-lg mx-auto"
+          className="text-center"
         >
-          L'AI non è "connessa" alla tua azienda.{" "}
-          <span className="text-primary">È dentro la tua&nbsp;azienda.</span>
-        </motion.p>
+          <p className="text-2xl md:text-3xl font-bold text-foreground max-w-xl mx-auto">
+            L'AI non è "connessa" alla tua azienda.{" "}
+            <span className="text-primary">È dentro la tua azienda.</span>
+          </p>
+        </motion.div>
       </div>
     </section>
   );

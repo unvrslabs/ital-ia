@@ -1,104 +1,244 @@
-import { motion } from "framer-motion";
-import { Bot, MessageSquare, FileText, Users, Workflow, Headphones, ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Bot, MessageSquare, FileText, Users, Workflow, Headphones, ArrowRight, Sparkles } from "lucide-react";
+import { useRef } from "react";
 
 const agents = [
   {
     icon: MessageSquare,
     title: "Vendite & Lead",
-    desc: "Agenti che qualificano lead, rispondono ai clienti e gestiscono il funnel commerciale 24/7.",
+    desc: "Qualifica lead, risponde ai clienti, gestisce il funnel 24/7.",
+    color: "from-green-500/20 to-emerald-500/5",
+    borderColor: "border-green-500/30",
   },
   {
     icon: FileText,
     title: "Amministrazione",
-    desc: "Generazione documenti, fatturazione, contratti e gestione pratiche burocratiche in automatico.",
+    desc: "Documenti, fatture, contratti e pratiche in automatico.",
+    color: "from-blue-500/20 to-cyan-500/5",
+    borderColor: "border-blue-500/30",
   },
   {
     icon: Headphones,
     title: "Customer Care",
-    desc: "Supporto clienti intelligente che risolve problemi, apre ticket e scala solo quando serve.",
+    desc: "Supporto intelligente che risolve e scala solo quando serve.",
+    color: "from-purple-500/20 to-violet-500/5",
+    borderColor: "border-purple-500/30",
   },
   {
     icon: Users,
     title: "HR & Recruiting",
-    desc: "Screening CV, scheduling colloqui, onboarding dipendenti e gestione richieste interne.",
+    desc: "Screening CV, colloqui, onboarding e richieste interne.",
+    color: "from-amber-500/20 to-yellow-500/5",
+    borderColor: "border-amber-500/30",
   },
   {
     icon: Workflow,
     title: "Operazioni",
-    desc: "Automazione dei workflow interni: approvazioni, report, monitoraggio KPI e alert.",
+    desc: "Approvazioni, report, KPI e alert automatizzati.",
+    color: "from-rose-500/20 to-pink-500/5",
+    borderColor: "border-rose-500/30",
   },
   {
     icon: Bot,
     title: "Custom Agent",
-    desc: "Agenti su misura per qualsiasi processo specifico della tua azienda. Se lo fai a mano, lo può fare un agente.",
+    desc: "Se lo fai a mano, lo può fare un agente. Su misura per te.",
+    color: "from-teal-500/20 to-emerald-500/5",
+    borderColor: "border-teal-500/30",
   },
 ];
 
 const WA_URL = "https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20al%20servizio%20AI%20Company%20con%20agenti%20AI%20per%20la%20mia%20azienda.%20Possiamo%20fissare%20una%20call%3F";
 
 export const AgentsSection = () => {
-  return (
-    <section id="agents" className="py-24 md:py-32 relative">
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Company</p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            La tua azienda, <br className="hidden md:block" />
-            <span className="text-muted-foreground">potenziata da agenti AI.</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ricreiamo i processi della tua azienda con agenti AI autonomi che usano i migliori modelli sul mercato — Claude, GPT, Gemini. Ogni reparto ha il suo agente, ogni processo diventa&nbsp;intelligente.
-          </p>
-        </motion.div>
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-12">
-          {agents.map((agent, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="liquid-glass rounded-2xl p-6 cursor-default"
+  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 8]);
+
+  return (
+    <section id="agents" ref={sectionRef} className="py-24 md:py-40 relative overflow-hidden">
+      {/* Floating decorative elements */}
+      <motion.div
+        style={{ y: y1, rotate }}
+        className="absolute -right-20 top-20 w-64 h-64 rounded-full bg-primary/5 blur-3xl pointer-events-none"
+      />
+      <motion.div
+        style={{ y: y2 }}
+        className="absolute -left-32 bottom-40 w-96 h-96 rounded-full bg-blue-500/5 blur-3xl pointer-events-none"
+      />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header — left aligned with big text */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-20">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+          >
+            <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Company</p>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground leading-[1.05] mb-6">
+              La tua azienda,{" "}
+              <span className="gradient-text">potenziata da agenti AI.</span>
+            </h2>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex flex-col justify-end"
+          >
+            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              Ricreiamo i processi della tua azienda con agenti AI autonomi che usano i migliori modelli — Claude, GPT, Gemini.
+            </p>
+            <motion.a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-premium inline-flex items-center gap-2 self-start"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center mb-4">
-                <agent.icon className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-foreground font-semibold text-base mb-2">{agent.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{agent.desc}</p>
-            </motion.div>
-          ))}
+              Scopri gli agenti
+              <ArrowRight className="w-5 h-5" />
+            </motion.a>
+          </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto liquid-glass-card rounded-2xl p-8 text-center"
-        >
-          <p className="text-foreground font-semibold text-lg mb-2">
-            Non sostituiamo le persone. Le liberiamo.
-          </p>
-          <p className="text-muted-foreground text-sm mb-6">
-            Gli agenti AI gestiscono il lavoro ripetitivo. Il tuo team si concentra su strategia, relazioni e crescita.
-          </p>
-          <motion.a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary inline-flex items-center gap-2 text-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
+        {/* Bento grid layout — asymmetric */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto mb-16">
+          {/* First card — large, spans 2 cols on lg */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            whileHover={{ y: -6, transition: { duration: 0.3 } }}
+            className={`lg:col-span-2 rounded-3xl p-8 md:p-10 border ${agents[0].borderColor} bg-gradient-to-br ${agents[0].color} backdrop-blur-sm relative overflow-hidden group cursor-default`}
           >
-            Scopri cosa può fare un agente per te
-            <ArrowRight className="w-4 h-4" />
-          </motion.a>
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="flex items-start justify-between mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-primary/15 border border-primary/20 flex items-center justify-center">
+                <agents[0].icon className="w-7 h-7 text-primary" />
+              </div>
+              <Sparkles className="w-5 h-5 text-primary/40 group-hover:text-primary transition-colors" />
+            </div>
+            <h3 className="text-foreground font-bold text-2xl mb-3">{agents[0].title}</h3>
+            <p className="text-muted-foreground text-base leading-relaxed max-w-md">{agents[0].desc}</p>
+          </motion.div>
+
+          {/* Second card — normal */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            whileHover={{ y: -6, transition: { duration: 0.3 } }}
+            className={`rounded-3xl p-8 border ${agents[1].borderColor} bg-gradient-to-br ${agents[1].color} backdrop-blur-sm group cursor-default`}
+          >
+            <div className="w-12 h-12 rounded-2xl bg-blue-500/15 border border-blue-500/20 flex items-center justify-center mb-5">
+              <agents[1].icon className="w-6 h-6 text-blue-400" />
+            </div>
+            <h3 className="text-foreground font-bold text-lg mb-2">{agents[1].title}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">{agents[1].desc}</p>
+          </motion.div>
+
+          {/* Third card */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            whileHover={{ y: -6, transition: { duration: 0.3 } }}
+            className={`rounded-3xl p-8 border ${agents[2].borderColor} bg-gradient-to-br ${agents[2].color} backdrop-blur-sm group cursor-default`}
+          >
+            <div className="w-12 h-12 rounded-2xl bg-purple-500/15 border border-purple-500/20 flex items-center justify-center mb-5">
+              <agents[2].icon className="w-6 h-6 text-purple-400" />
+            </div>
+            <h3 className="text-foreground font-bold text-lg mb-2">{agents[2].title}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">{agents[2].desc}</p>
+          </motion.div>
+
+          {/* Fourth card — tall, spans 2 rows on lg */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            whileHover={{ y: -6, transition: { duration: 0.3 } }}
+            className={`lg:row-span-2 rounded-3xl p-8 border ${agents[3].borderColor} bg-gradient-to-br ${agents[3].color} backdrop-blur-sm flex flex-col justify-between group cursor-default`}
+          >
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/20 flex items-center justify-center mb-5">
+                <agents[3].icon className="w-6 h-6 text-amber-400" />
+              </div>
+              <h3 className="text-foreground font-bold text-lg mb-2">{agents[3].title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{agents[3].desc}</p>
+            </div>
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <p className="text-xs text-muted-foreground/60 uppercase tracking-wider">Integrato con</p>
+              <p className="text-foreground/80 text-sm mt-1 font-medium">LinkedIn, Indeed, Email, CRM</p>
+            </div>
+          </motion.div>
+
+          {/* Fifth card */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            whileHover={{ y: -6, transition: { duration: 0.3 } }}
+            className={`rounded-3xl p-8 border ${agents[4].borderColor} bg-gradient-to-br ${agents[4].color} backdrop-blur-sm group cursor-default`}
+          >
+            <div className="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-500/20 flex items-center justify-center mb-5">
+              <agents[4].icon className="w-6 h-6 text-rose-400" />
+            </div>
+            <h3 className="text-foreground font-bold text-lg mb-2">{agents[4].title}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">{agents[4].desc}</p>
+          </motion.div>
+
+          {/* Sixth card — Custom with special styling */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            whileHover={{ y: -6, transition: { duration: 0.3 } }}
+            className="rounded-3xl p-8 border border-primary/30 bg-gradient-to-br from-primary/15 to-primary/5 backdrop-blur-sm relative overflow-hidden group cursor-default"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(158_64%_42%/0.15),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative z-10">
+              <div className="w-12 h-12 rounded-2xl bg-primary/15 border border-primary/20 flex items-center justify-center mb-5 animate-pulse-glow">
+                <agents[5].icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-foreground font-bold text-lg mb-2">{agents[5].title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{agents[5].desc}</p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Bottom statement — full width, big text */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <p className="text-2xl md:text-4xl font-bold text-foreground max-w-3xl mx-auto leading-snug">
+            Non sostituiamo le persone.{" "}
+            <span className="text-primary">Le liberiamo.</span>
+          </p>
+          <p className="text-muted-foreground text-base mt-4 max-w-lg mx-auto">
+            Gli agenti gestiscono il ripetitivo. Il tuo team si concentra su strategia, relazioni e crescita.
+          </p>
         </motion.div>
       </div>
     </section>

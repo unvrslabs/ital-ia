@@ -14,7 +14,7 @@ const rows = [
 
 export const ComparisonSection = () => {
   return (
-    <section className="py-24 md:py-32 relative">
+    <section className="py-24 md:py-40 relative">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -25,32 +25,35 @@ export const ComparisonSection = () => {
           <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">
             Confronto
           </p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            AI generica vs{" "}
-            <span className="text-primary">ITAL&nbsp;IA</span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-6">
+            Perché{" "}
+            <span className="text-primary">Go Ital IA?</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Agenti AI dedicati e modelli sovrani vs soluzioni generiche. Ecco perché Go Ital IA fa la&nbsp;differenza.
-          </p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto liquid-glass-card overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 30, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-3xl mx-auto rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm overflow-hidden"
+        >
           {/* Header */}
-          <div className="grid grid-cols-[1fr_100px_100px] md:grid-cols-[1fr_140px_140px] px-6 py-4 border-b border-border/30">
+          <div className="grid grid-cols-[1fr_100px_100px] md:grid-cols-[1fr_140px_140px] px-6 py-5 border-b border-white/10 bg-white/[0.03]">
             <span className="text-sm text-muted-foreground font-medium">Funzionalità</span>
             <span className="text-sm text-muted-foreground font-medium text-center">AI Generica</span>
-            <span className="text-sm text-primary font-semibold text-center">ITAL IA</span>
+            <span className="text-sm text-primary font-bold text-center">Go Ital IA</span>
           </div>
 
           {/* Rows */}
           {rows.map((row, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              className="grid grid-cols-[1fr_100px_100px] md:grid-cols-[1fr_140px_140px] px-6 py-4 border-b border-border/10 last:border-b-0 hover:bg-white/[0.03] transition-colors"
+              transition={{ delay: index * 0.06, duration: 0.5 }}
+              className="grid grid-cols-[1fr_100px_100px] md:grid-cols-[1fr_140px_140px] px-6 py-4 border-b border-white/5 last:border-b-0 hover:bg-white/[0.03] transition-colors"
             >
               <span className="text-foreground/90 text-sm font-medium">
                 {row.feature}
@@ -59,15 +62,22 @@ export const ComparisonSection = () => {
                 {row.generic ? (
                   <Check className="w-5 h-5 text-primary" />
                 ) : (
-                  <X className="w-5 h-5 text-destructive/60" />
+                  <X className="w-5 h-5 text-red-400/60" />
                 )}
               </div>
               <div className="flex justify-center">
-                <Check className="w-5 h-5 text-primary" />
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + index * 0.06, type: "spring", bounce: 0.5 }}
+                >
+                  <Check className="w-5 h-5 text-primary" />
+                </motion.div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
