@@ -41,17 +41,6 @@ export const HowItWorksSection = () => {
 
         {/* Horizontal cards with connecting line */}
         <div className="max-w-5xl mx-auto relative">
-          {/* Connecting line — desktop only */}
-          <div className="hidden md:block absolute top-[60px] left-[10%] right-[10%] h-px bg-white/10">
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: 0.3 }}
-              className="h-full bg-gradient-to-r from-primary/50 via-primary to-primary/50 origin-left"
-            />
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {steps.map((step, index) => (
               <motion.div
