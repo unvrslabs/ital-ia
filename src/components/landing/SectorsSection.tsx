@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Zap, Factory, Briefcase, Landmark, ShoppingBag, Truck, HeartPulse, Building2, Wrench } from "lucide-react";
+import { Zap, Factory, Briefcase, Landmark, ShoppingBag, Truck, HeartPulse, Building2, Wrench, Crosshair, BarChart3, Settings, Lock } from "lucide-react";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
 
 const sectors = [
@@ -16,10 +16,10 @@ const sectors = [
 ];
 
 const features = [
-  { text: "Progettato su misura", icon: "🎯" },
-  { text: "Addestrato con dati reali del cliente", icon: "📊" },
-  { text: "Ottimizzato per i processi specifici", icon: "⚙️" },
-  { text: "Isolato e dedicato", icon: "🔒" },
+  { text: "Progettato su misura", icon: Crosshair },
+  { text: "Addestrato con dati reali del cliente", icon: BarChart3 },
+  { text: "Ottimizzato per i processi specifici", icon: Settings },
+  { text: "Isolato e dedicato", icon: Lock },
 ];
 
 export const SectorsSection = () => {
@@ -45,7 +45,7 @@ export const SectorsSection = () => {
         </motion.div>
 
         {/* Sector grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 max-w-3xl mx-auto mb-6">
+        <div className="grid grid-cols-3 gap-3 max-w-2xl mx-auto mb-6">
           {sectors.map((sector, index) => (
             <motion.div
               key={index}
@@ -136,7 +136,9 @@ export const SectorsSection = () => {
                 whileHover={{ scale: 1.04, y: -3 }}
                 className="liquid-glass-hover rounded-2xl p-5 text-center flex flex-col items-center gap-3"
               >
-                <span className="text-2xl">{feature.icon}</span>
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <feature.icon className="w-5 h-5 text-primary" />
+                </div>
                 <p className="text-foreground font-medium text-sm leading-tight">{feature.text}</p>
               </motion.div>
             ))}
