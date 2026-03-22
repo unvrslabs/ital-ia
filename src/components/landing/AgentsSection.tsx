@@ -281,7 +281,7 @@ export const AgentsSection = () => {
           className="mb-10"
         >
           <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground/60 font-medium mb-4 text-center">Seleziona il tuo settore</p>
-          <div className="flex flex-wrap gap-2 justify-center">
+          <div className="flex gap-2 justify-start md:justify-center overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             {companies.map((company) => {
               const Icon = company.icon;
               const isActive = activeTab === company.id;
@@ -291,7 +291,7 @@ export const AgentsSection = () => {
                   onClick={() => setActiveTab(company.id)}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.97 }}
-                  className={`flex items-center gap-2.5 px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                  className={`flex items-center gap-2.5 px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 flex-shrink-0 whitespace-nowrap ${
                     isActive
                       ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
                       : "border border-white/10 bg-white/[0.04] text-muted-foreground hover:text-foreground hover:bg-white/[0.08]"
