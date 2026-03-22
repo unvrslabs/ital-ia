@@ -83,7 +83,9 @@ export const FAQSection = () => {
           className="max-w-3xl mx-auto mt-12 text-center liquid-glass rounded-2xl p-8"
         >
           <p className="text-foreground font-semibold text-lg mb-4">
-            Non trovi la risposta? Chiedici direttamente
+            Non trovi la risposta?
+            <br />
+            Chiedici direttamente
           </p>
           <motion.a
             href="https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20a%20una%20consulenza%20sulla%20transizione%20delle%20PMI%20verso%20l%27intelligenza%20artificiale.%20Possiamo%20fissare%20una%20call%20nei%20prossimi%20giorni%3F"

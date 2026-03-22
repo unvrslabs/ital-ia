@@ -30,10 +30,10 @@ export const BandiMarquee = () => {
           {duplicated.map((item, index) => (
             <div
               key={`${item.label}-${index}`}
-              className="flex items-center gap-3 px-5 py-3 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm whitespace-nowrap"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-primary/20 bg-primary/5 whitespace-nowrap"
             >
-              <item.icon className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">{item.label}</span>
+              <item.icon className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+              <span className="text-xs font-medium text-foreground">{item.label}</span>
             </div>
           ))}
         </motion.div>
