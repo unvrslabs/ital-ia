@@ -1,6 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { MessageSquare, Settings, Rocket } from "lucide-react";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { MessageSquare, Settings, Rocket, ArrowRight } from "lucide-react";
 
 const steps = [
   {
@@ -8,34 +7,24 @@ const steps = [
     icon: MessageSquare,
     title: "Consulenza",
     description: "Analizziamo i tuoi processi e identifichiamo dove l'AI genera il massimo impatto.",
-    accent: "text-primary",
-    bg: "from-primary/8",
   },
   {
     number: "02",
     icon: Settings,
     title: "Configurazione",
     description: "Costruiamo i tuoi agenti AI o addestriamo il tuo LLM proprietario sui dati aziendali.",
-    accent: "text-primary",
-    bg: "from-primary/6",
   },
   {
     number: "03",
     icon: Rocket,
     title: "Vai Live",
     description: "Il sistema è operativo. Tu ti concentri sulla crescita, l'AI lavora per te.",
-    accent: "text-primary",
-    bg: "from-primary/10",
   },
 ];
 
 export const HowItWorksSection = () => {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const lineHeight = useTransform(scrollYProgress, [0.1, 0.7], ["0%", "100%"]);
-
   return (
-    <section id="how-it-works" ref={ref} className="py-24 md:py-40 relative overflow-hidden">
+    <section id="how-it-works" className="py-24 md:py-40 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -50,55 +39,51 @@ export const HowItWorksSection = () => {
           </h2>
         </motion.div>
 
-        {/* Timeline layout */}
-        <div className="max-w-4xl mx-auto relative">
-          {/* Animated vertical line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-white/10 hidden md:block">
+        {/* Horizontal cards with connecting line */}
+        <div className="max-w-5xl mx-auto relative">
+          {/* Connecting line — desktop only */}
+          <div className="hidden md:block absolute top-[60px] left-[10%] right-[10%] h-px bg-white/10">
             <motion.div
-              style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-primary to-primary/30"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, delay: 0.3 }}
+              className="h-full bg-gradient-to-r from-primary/50 via-primary to-primary/50 origin-left"
             />
           </div>
 
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className={`relative flex items-center gap-8 mb-16 last:mb-0 ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
-            >
-              {/* Number circle */}
-              <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-10">
-                <div className="w-16 h-16 rounded-full bg-background border-2 border-primary/50 flex items-center justify-center">
-                  <span className={`text-xl font-black ${step.accent}`}>{step.number}</span>
-                </div>
-              </div>
-
-              {/* Content card */}
-              <div className={`flex-1 ${index % 2 === 0 ? "md:pr-20" : "md:pl-20"}`}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {steps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col items-center text-center"
+              >
+                {/* Number circle */}
                 <motion.div
-                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                  className={`p-8 md:p-10 rounded-3xl border border-white/10 bg-gradient-to-br ${step.bg} to-transparent backdrop-blur-sm cursor-default`}
+                  whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                  className="w-[120px] h-[120px] rounded-full border border-primary/20 bg-primary/5 flex flex-col items-center justify-center mb-8 relative"
                 >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="md:hidden w-10 h-10 rounded-full bg-background border border-primary/40 flex items-center justify-center">
-                      <span className={`text-sm font-black ${step.accent}`}>{step.number}</span>
-                    </div>
-                    <step.icon className={`w-6 h-6 ${step.accent}`} />
-                  </div>
-                  <h3 className="text-foreground font-bold text-2xl mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground text-base leading-relaxed">{step.description}</p>
+                  <div className="absolute inset-0 rounded-full bg-primary/10 animate-pulse-glow" />
+                  <span className="text-primary/40 text-xs font-bold tracking-widest relative z-10">{step.number}</span>
+                  <step.icon className="w-8 h-8 text-primary relative z-10 mt-1" />
                 </motion.div>
-              </div>
 
-              {/* Spacer for alternating layout */}
-              <div className="hidden md:block flex-1" />
-            </motion.div>
-          ))}
+                {/* Arrow between circles — mobile only */}
+                {index < steps.length - 1 && (
+                  <div className="md:hidden flex justify-center my-2">
+                    <ArrowRight className="w-5 h-5 text-primary/30 rotate-90" />
+                  </div>
+                )}
+
+                <h3 className="text-foreground font-bold text-2xl mb-3">{step.title}</h3>
+                <p className="text-muted-foreground text-base leading-relaxed max-w-xs">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
