@@ -250,13 +250,16 @@ export const AgentsSection = () => {
           className="text-center mb-16 max-w-3xl mx-auto"
         >
           <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Company</p>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground leading-[1.05] mb-6">
-            La tua azienda, potenziata
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-6">
+            <span className="text-foreground">La tua azienda,</span>{" "}
+            <span className="text-primary">potenziata da</span>
             <br />
-            <span className="gradient-text">da Agenti&nbsp;AI.</span>
+            <span className="text-primary">Agenti&nbsp;AI.</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-            Ricreiamo i processi della tua azienda con Agenti AI autonomi che usano i migliori modelli — Claude, GPT, Gemini.
+            Ricreiamo i processi della tua azienda con Agenti AI autonomi
+            <br className="hidden md:block" />
+            che usano i migliori modelli LLM come Anthropic, OpenAI, Gemini.
           </p>
           <motion.a
             href={WA_URL}
