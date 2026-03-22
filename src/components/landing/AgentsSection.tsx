@@ -48,7 +48,7 @@ export const AgentsSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex flex-col justify-start"
+            className="lg:col-span-5 flex flex-col justify-center"
           >
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
               Ricreiamo i processi della tua azienda con agenti AI autonomi che usano i migliori modelli — Claude, GPT, Gemini.
