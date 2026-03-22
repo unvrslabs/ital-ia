@@ -27,7 +27,7 @@ export const CTASection = () => {
             <span className="text-primary font-semibold">AI italiana, su misura per te.</span>
           </div>
 
-          <div className="inline-flex items-center gap-2 text-sm text-primary font-semibold mb-12 liquid-glass rounded-full px-5 py-2">
+          <div className="flex items-center justify-center gap-2 text-sm text-primary font-semibold mb-10 liquid-glass rounded-full px-5 py-2 mx-auto w-fit">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
@@ -39,7 +39,7 @@ export const CTASection = () => {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-premium inline-flex items-center gap-3 text-lg"
+            className="btn-premium flex items-center gap-3 text-lg mx-auto w-fit"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
