@@ -40,7 +40,7 @@ export const AgentsSection = () => {
             <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Company</p>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground leading-[1.05] mb-6">
               La tua azienda,{" "}
-              <span className="gradient-text">potenziata da agenti AI.</span>
+              <span className="gradient-text">potenziata da agenti&nbsp;AI.</span>
             </h2>
           </motion.div>
           <motion.div
