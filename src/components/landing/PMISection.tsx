@@ -43,8 +43,7 @@ export const PMISection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="w-[180px] md:w-auto flex-shrink-0 rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 text-center cursor-default group"
+                className="w-[180px] md:w-auto flex-shrink-0 rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 text-center cursor-default group md:hover:-translate-y-2 md:transition-transform md:duration-300"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <item.icon className="w-5 h-5 text-primary" />
