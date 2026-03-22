@@ -10,6 +10,7 @@ type VoiceAgent = {
   role: string;
   sector: string;
   icon: LucideIcon;
+  photo: string;
   firstMessage: string;
   desc: string;
 };
@@ -22,6 +23,7 @@ const agents: VoiceAgent[] = [
     role: "Assistente Studio Commercialista",
     sector: "Studio Professionale",
     icon: Briefcase,
+    photo: "/agents/marco.jpg",
     firstMessage: "Buongiorno, sono Marco, assistente virtuale dello studio. Come posso aiutarla oggi?",
     desc: "Scadenze fiscali, IVA, fatturazione, dichiarazioni, regime forfettario.",
   },
@@ -32,6 +34,7 @@ const agents: VoiceAgent[] = [
     role: "Assistente E-commerce",
     sector: "E-commerce / Retail",
     icon: ShoppingBag,
+    photo: "/agents/giulia.jpg",
     firstMessage: "Ciao! Sono Giulia, la tua assistente. Come posso aiutarti con il tuo ordine?",
     desc: "Ordini, resi, spedizioni, taglie, promozioni e pagamenti.",
   },
@@ -42,6 +45,7 @@ const agents: VoiceAgent[] = [
     role: "Assistente Produzione",
     sector: "Manifatturiera",
     icon: Factory,
+    photo: "/agents/roberto.jpg",
     firstMessage: "Buongiorno, sono Roberto, assistente di produzione. Come posso assisterla?",
     desc: "Stato produzione, manutenzione, qualità, magazzino e fornitori.",
   },
@@ -52,36 +56,36 @@ const agents: VoiceAgent[] = [
     role: "Assistente Creativa",
     sector: "Agenzia Marketing",
     icon: Building2,
+    photo: "/agents/sara.jpg",
     firstMessage: "Ciao! Sono Sara, la tua assistente creativa. Su quale progetto posso aiutarti?",
     desc: "Campagne, social media, brief creativi, analytics e contenuti.",
   },
 ];
 
 const AgentCard = ({ agent, onCall }: { agent: VoiceAgent; onCall: (agent: VoiceAgent) => void }) => {
-  const Icon = agent.icon;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 flex flex-col cursor-default"
+      className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 flex flex-col items-center text-center cursor-default"
     >
-      <div className="flex items-start gap-4 mb-4">
-        <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
-          <Icon className="w-6 h-6 text-primary" />
-        </div>
-        <div className="min-w-0">
-          <h3 className="text-foreground font-bold text-lg">{agent.name}</h3>
-          <p className="text-primary text-xs font-medium">{agent.sector}</p>
-        </div>
+      <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 mb-4">
+        <img
+          src={agent.photo}
+          alt={agent.name}
+          className="w-full h-full object-cover"
+        />
       </div>
+
+      <h3 className="text-foreground font-bold text-lg">{agent.name}</h3>
+      <p className="text-primary text-xs font-medium mb-3">{agent.sector}</p>
 
       <p className="text-muted-foreground text-sm leading-relaxed mb-1">{agent.role}</p>
       <p className="text-muted-foreground/60 text-xs leading-relaxed mb-6">{agent.desc}</p>
 
-      <div className="mt-auto">
+      <div className="mt-auto w-full">
         <motion.button
           onClick={() => onCall(agent)}
           whileHover={{ scale: 1.03 }}
@@ -199,12 +203,12 @@ export const VoiceAgentsSection = () => {
               animate={{ scale: 1, opacity: 1 }}
               className="max-w-sm w-full text-center"
             >
-              {/* Pulsing circle */}
+              {/* Photo with pulsing ring */}
               <div className="relative w-32 h-32 mx-auto mb-8">
-                <div className={`absolute inset-0 rounded-full ${isConnecting ? "bg-primary/20" : "bg-primary/10 animate-pulse"}`} />
-                <div className={`absolute inset-3 rounded-full ${isConnecting ? "bg-primary/30" : "bg-primary/20 animate-pulse"}`} style={{ animationDelay: "0.2s" }} />
-                <div className="absolute inset-6 rounded-full bg-primary/15 flex items-center justify-center">
-                  <Mic className={`w-10 h-10 ${isConnecting ? "text-primary/50" : "text-primary"}`} />
+                <div className={`absolute inset-0 rounded-full ${isConnecting ? "bg-primary/20" : "bg-primary/20 animate-pulse"}`} />
+                <div className={`absolute inset-2 rounded-full ${isConnecting ? "bg-primary/10" : "bg-primary/10 animate-pulse"}`} style={{ animationDelay: "0.2s" }} />
+                <div className="absolute inset-3 rounded-full overflow-hidden border-2 border-primary/40">
+                  <img src={activeAgent.photo} alt={activeAgent.name} className="w-full h-full object-cover" />
                 </div>
               </div>
 
