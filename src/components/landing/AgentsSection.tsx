@@ -241,36 +241,39 @@ export const AgentsSection = () => {
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header — centered */}
+        {/* Header — glass card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16 max-w-3xl mx-auto"
+          className="max-w-3xl mx-auto mb-16 rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-xl p-10 md:p-14 text-center relative overflow-hidden"
         >
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Company</p>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-6">
-            <span className="text-foreground">La tua azienda,</span> <span className="text-primary">potenziata&nbsp;da</span>
-            <br />
-            <span className="text-primary">Agenti&nbsp;AI.</span>
-          </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-            Ricreiamo i processi della tua azienda con Agenti AI autonomi
-            <br className="hidden md:block" />
-            che usano i migliori modelli LLM come Anthropic, OpenAI, Gemini.
-          </p>
-          <motion.a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-premium inline-flex items-center gap-2"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Scopri gli agenti
-            <ArrowRight className="w-5 h-5" />
-          </motion.a>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
+          <div className="relative z-10">
+            <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Company</p>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-6">
+              <span className="text-foreground">La tua azienda,</span> <span className="text-primary">potenziata&nbsp;da</span>
+              <br />
+              <span className="text-primary">Agenti&nbsp;AI.</span>
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
+              Ricreiamo i processi della tua azienda con Agenti AI autonomi
+              <br className="hidden md:block" />
+              che usano i migliori modelli LLM come Anthropic, OpenAI, Gemini.
+            </p>
+            <motion.a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-premium inline-flex items-center gap-2"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Scopri gli agenti
+              <ArrowRight className="w-5 h-5" />
+            </motion.a>
+          </div>
         </motion.div>
 
         {/* Tab selector */}
