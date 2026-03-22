@@ -107,6 +107,7 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: hsl(215 35% 12%);
   }
 
   body {
