@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { BandiMarquee } from "@/components/landing/BandiMarquee";
 import { AgentsSection } from "@/components/landing/AgentsSection";
+import { VoiceAgentsSection } from "@/components/landing/VoiceAgentsSection";
 import { SovereignSection } from "@/components/landing/SovereignSection";
 import { SectorsSection } from "@/components/landing/SectorsSection";
 import { InfrastructureSection } from "@/components/landing/InfrastructureSection";
@@ -28,6 +29,7 @@ const Index = () => {
           <HeroSection />
           <BandiMarquee />
           <AgentsSection />
+          <VoiceAgentsSection />
           <SovereignSection />
           <InlineCTA text="Vuoi il controllo totale sui tuoi dati? Parliamone" />
           <SectorsSection />
