@@ -45,7 +45,7 @@ const WA_URL = "https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20inter
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" aria-label="Go Ital IA — Intelligenza Artificiale per PMI Italiane">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-background" aria-label="Go Ital IA — Intelligenza Artificiale per PMI Italiane">
       <div className="absolute inset-0 z-0">
         <ParticleBackground />
       </div>
