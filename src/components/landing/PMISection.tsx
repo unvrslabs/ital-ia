@@ -36,23 +36,22 @@ export const PMISection = () => {
         {/* Horizontal scrolling stats on mobile, grid on desktop */}
         <div className="overflow-x-auto -mx-4 px-4 md:overflow-visible md:mx-0 md:px-0 mb-16" style={{ scrollbarWidth: 'none' }}>
           <div className="flex md:grid md:grid-cols-5 gap-4 min-w-max md:min-w-0 max-w-5xl mx-auto">
-            {results.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="w-[180px] md:w-auto flex-shrink-0 rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 text-center cursor-default group md:hover:-translate-y-2 md:transition-transform md:duration-300"
-              >
-                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                  <item.icon className="w-5 h-5 text-primary" />
+            {results.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={index}
+                  className="w-[180px] md:w-auto flex-shrink-0 rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 text-center cursor-default group md:hover:-translate-y-2 md:transition-transform md:duration-300"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <p className="text-3xl font-black text-primary mb-1">{item.value}</p>
+                  <p className="text-foreground font-semibold text-sm mb-1">{item.label}</p>
+                  <p className="text-muted-foreground text-xs leading-tight">{item.desc}</p>
                 </div>
-                <p className="text-3xl font-black text-primary mb-1">{item.value}</p>
-                <p className="text-foreground font-semibold text-sm mb-1">{item.label}</p>
-                <p className="text-muted-foreground text-xs leading-tight">{item.desc}</p>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
