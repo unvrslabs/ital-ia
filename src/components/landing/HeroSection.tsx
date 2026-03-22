@@ -45,7 +45,7 @@ const WA_URL = "https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20inter
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" aria-label="ITAL IA — Intelligenza Artificiale Sovrana per PMI Italiane">
+    <section className="relative min-h-screen flex items-center overflow-hidden" aria-label="Go Ital IA — Intelligenza Artificiale per PMI Italiane">
       <div className="absolute inset-0 z-0">
         <ParticleBackground />
       </div>
@@ -77,7 +77,7 @@ export const HeroSection = () => {
               <span className="text-red-500">GO</span>{" "}
               <span className="text-white">ITAL</span>{" "}
               <span className="text-green-500">IA</span>
-              <span className="sr-only"> — Intelligenza Artificiale Sovrana per PMI Italiane. LLM proprietari addestrati sui tuoi dati aziendali, eseguiti su hardware Nvidia DGX Spark nella tua sede.</span>
+              <span className="sr-only"> — Intelligenza Artificiale per PMI Italiane. LLM sovrani e agenti AI per trasformare la tua azienda.</span>
             </motion.h1>
 
             <motion.p
@@ -86,7 +86,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.45 }}
               className="text-xl md:text-2xl text-foreground/90 mb-6"
             >
-              LLM proprietari <TypewriterEffect />
+              AI su misura <TypewriterEffect />
             </motion.p>
 
             <motion.p
@@ -95,7 +95,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-base md:text-lg text-muted-foreground/80 max-w-lg mb-4 leading-relaxed"
             >
-              Addestrati con i tuoi dati, eseguiti localmente su infrastruttura ad alte&nbsp;prestazioni.
+              Modelli proprietari e agenti AI che lavorano per te. Dalla sovranità dei dati all'automazione totale dei&nbsp;processi.
             </motion.p>
 
             <motion.p
@@ -104,7 +104,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-base md:text-lg text-foreground font-medium mb-10"
             >
-              Questa non è automazione. Questa è <span className="text-primary font-semibold">infrastruttura&nbsp;cognitiva</span>.
+              Questa non è automazione. Questa è <span className="text-primary font-semibold">trasformazione&nbsp;aziendale</span>.
             </motion.p>
 
             <motion.div

@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { BandiMarquee } from "@/components/landing/BandiMarquee";
-
+import { AgentsSection } from "@/components/landing/AgentsSection";
 import { SovereignSection } from "@/components/landing/SovereignSection";
 import { SectorsSection } from "@/components/landing/SectorsSection";
 import { InfrastructureSection } from "@/components/landing/InfrastructureSection";
@@ -20,15 +20,17 @@ const Index = () => {
       <div className="fixed inset-0 mesh-gradient" aria-hidden="true" />
       <div className="fixed inset-0 aurora-bg pointer-events-none" aria-hidden="true" />
       <div className="grain-overlay" aria-hidden="true" />
-      
+
       <div className="relative z-10">
         <Navbar />
-        
+
         <main role="main">
           <HeroSection />
           <BandiMarquee />
+          <AgentsSection />
+          <InlineCTA text="Vuoi automatizzare i processi della tua azienda? Parliamone" />
           <SovereignSection />
-          <InlineCTA text="Vuoi proteggere i tuoi dati? Parliamone" />
+          <InlineCTA text="Vuoi il controllo totale sui tuoi dati? Parliamone" />
           <SectorsSection />
           <InfrastructureSection />
           <HowItWorksSection />
@@ -38,7 +40,7 @@ const Index = () => {
           <FAQSection />
           <CTASection />
         </main>
-        
+
         <Footer />
       </div>
     </div>

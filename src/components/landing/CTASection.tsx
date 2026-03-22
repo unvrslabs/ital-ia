@@ -18,13 +18,13 @@ export const CTASection = () => {
             <span className="text-muted-foreground">il tuo business?</span>
           </h2>
           <p className="text-muted-foreground text-lg mb-4">
-            30 minuti di consulenza gratuita. Nessun impegno. Vediamo insieme come l'AI sovrana può fare la differenza per la tua&nbsp;azienda.
+            30 minuti di consulenza gratuita. Nessun impegno. Vediamo insieme come agenti AI e modelli sovrani possono fare la differenza per la tua&nbsp;azienda.
           </p>
 
           <div className="flex flex-col items-center gap-2 mb-10 text-foreground/80 font-medium">
-            <span>Costruita in Italia.</span>
-            <span>Eseguita in Italia.</span>
-            <span className="text-primary font-semibold">Di tua proprietà.</span>
+            <span>Agenti AI per ogni processo.</span>
+            <span>LLM sovrani per chi vuole il controllo totale.</span>
+            <span className="text-primary font-semibold">AI italiana, su misura per te.</span>
           </div>
 
           <div className="inline-flex items-center gap-2 text-sm text-primary font-semibold mb-8 liquid-glass rounded-full px-5 py-2">

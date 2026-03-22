@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { ShieldCheck, ServerCrash, Globe, Lock } from "lucide-react";
 
 const points = [
-  { icon: ServerCrash, text: "Nessuna API verso OpenAI, Anthropic o terzi" },
+  { icon: ServerCrash, text: "Nessuna API verso terzi" },
   { icon: Lock, text: "Nessun training su dati condivisi" },
   { icon: Globe, text: "Nessun server fuori dall'Italia" },
-  { icon: ShieldCheck, text: "Nessun rischio di fuga di dati" },
+  { icon: ShieldCheck, text: "Proprietà totale del modello" },
 ];
 
 export const SovereignSection = () => {
@@ -18,13 +18,13 @@ export const SovereignSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Sovrana</p>
+          <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">LLM Sovrani</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Ital → ia <br className="hidden md:block" />
-            <span className="text-muted-foreground">Senza Compromessi.</span>
+            Il tuo modello. <br className="hidden md:block" />
+            <span className="text-muted-foreground">Nella tua sede.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            La maggior parte delle aziende oggi usa "AI" tramite API esterne, modelli generici e server stranieri. Noi abbiamo scelto un'altra&nbsp;strada.
+            Per chi vuole il massimo controllo: LLM proprietari addestrati sui tuoi dati, eseguiti su hardware Nvidia DGX Spark nella tua sede. Zero dipendenze&nbsp;esterne.
           </p>
         </motion.div>
 
@@ -55,7 +55,7 @@ export const SovereignSection = () => {
           viewport={{ once: true }}
           className="text-center text-primary font-semibold text-lg mt-10"
         >
-          Solo AI sovrana, privata, controllabile.
+          Per chi non accetta compromessi sulla sovranità dei dati.
         </motion.p>
       </div>
     </section>

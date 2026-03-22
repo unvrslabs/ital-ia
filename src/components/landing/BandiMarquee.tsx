@@ -9,8 +9,8 @@ const items: { icon: LucideIcon; label: string }[] = [
   { icon: Database, label: "Dati Sovrani" },
   { icon: Cpu, label: "DGX Spark" },
   { icon: Lock, label: "Zero Cloud Esteri" },
-  { icon: Zap, label: "1000 TOPS" },
-  { icon: BarChart3, label: "AI Verticale" },
+  { icon: Zap, label: "Agenti AI" },
+  { icon: BarChart3, label: "AI Company" },
 ];
 
 export const BandiMarquee = () => {

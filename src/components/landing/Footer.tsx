@@ -7,9 +7,9 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 const WA_URL = "https://wa.me/34625976744?text=Ciao%20Emanuele%2C%0Asono%20interessato%20a%20una%20consulenza%20sulla%20transizione%20delle%20PMI%20verso%20l%27intelligenza%20artificiale.%20Possiamo%20fissare%20una%20call%20nei%20prossimi%20giorni%3F";
 
 const siteLinks = [
+  { label: "Agenti AI", href: "#agents" },
   { label: "AI Sovrana", href: "#sovereign" },
   { label: "Settori", href: "#sectors" },
-  { label: "Come Funziona", href: "#how-it-works" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -119,10 +119,10 @@ export const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <span className="text-foreground font-bold text-lg">
-              ITAL <span className="text-primary">IA</span>
+              <span className="text-red-500">GO</span> <span className="text-white">ITAL</span> <span className="text-green-500">IA</span>
             </span>
             <p className="text-muted-foreground text-sm mt-3 leading-relaxed">
-              AI sovrana per le PMI italiane. I tuoi dati, il tuo modello, la tua infrastruttura.
+              Agenti AI e modelli sovrani per le PMI italiane. La tua azienda, potenziata dall'intelligenza artificiale.
             </p>
           </div>
 

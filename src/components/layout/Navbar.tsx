@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Home", href: "#" },
+  { label: "Agenti AI", href: "#agents" },
   { label: "AI Sovrana", href: "#sovereign" },
   { label: "Settori", href: "#sectors" },
-  { label: "Infrastruttura", href: "#infrastructure" },
   { label: "PMI", href: "#pmi" },
 ];
 

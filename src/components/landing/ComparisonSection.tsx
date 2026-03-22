@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { Check, X, ArrowRight } from "lucide-react";
 
 const rows = [
-  { feature: "Dati al sicuro in Italia", generic: false, unvrs: true },
-  { feature: "Modello addestrato sui tuoi dati", generic: false, unvrs: true },
-  { feature: "Nessuna dipendenza da cloud esteri", generic: false, unvrs: true },
+  { feature: "Agenti AI per ogni reparto", generic: false, unvrs: true },
+  { feature: "Modelli addestrati sui tuoi dati", generic: false, unvrs: true },
+  { feature: "Automazione processi aziendali", generic: false, unvrs: true },
   { feature: "Conformità GDPR e NIS2", generic: false, unvrs: true },
-  { feature: "Infrastruttura dedicata", generic: false, unvrs: true },
+  { feature: "Opzione LLM sovrano on-premise", generic: false, unvrs: true },
   { feature: "Risposte specifiche per il tuo settore", generic: false, unvrs: true },
-  { feature: "Proprietà completa del modello", generic: false, unvrs: true },
+  { feature: "Integrazione con i tuoi sistemi", generic: false, unvrs: true },
   { feature: "Accessibile via API e chat", generic: true, unvrs: true },
 ];
 
@@ -30,7 +30,7 @@ export const ComparisonSection = () => {
             <span className="text-primary">ITAL&nbsp;IA</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Non tutti i modelli AI sono uguali. Ecco perché un LLM sovrano e&nbsp;dedicato fa la differenza.
+            Agenti AI dedicati e modelli sovrani vs soluzioni generiche. Ecco perché Go Ital IA fa la&nbsp;differenza.
           </p>
         </motion.div>
 

@@ -10,6 +10,9 @@ const phrases = [
   "per il Commercio",
   "per la PA",
   "per le PMI",
+  "con Agenti AI",
+  "con LLM Sovrani",
+  "con AI Company",
 ];
 
 export const TypewriterEffect = () => {
