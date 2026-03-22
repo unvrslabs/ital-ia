@@ -251,8 +251,9 @@ export const AgentsSection = () => {
         >
           <p className="text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-4">AI Company</p>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground leading-[1.05] mb-6">
-            La tua azienda,{" "}
-            <span className="gradient-text">potenziata da Agenti&nbsp;AI.</span>
+            La tua azienda, potenziata
+            <br />
+            <span className="gradient-text">da Agenti&nbsp;AI.</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-8">
             Ricreiamo i processi della tua azienda con Agenti AI autonomi che usano i migliori modelli — Claude, GPT, Gemini.
@@ -277,8 +278,8 @@ export const AgentsSection = () => {
           viewport={{ once: true }}
           className="mb-10"
         >
-          <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground/60 font-medium mb-4">Seleziona il tuo settore</p>
-          <div className="flex flex-wrap gap-2">
+          <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground/60 font-medium mb-4 text-center">Seleziona il tuo settore</p>
+          <div className="flex flex-wrap gap-2 justify-center">
             {companies.map((company) => {
               const Icon = company.icon;
               const isActive = activeTab === company.id;
