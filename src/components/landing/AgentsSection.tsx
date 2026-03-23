@@ -263,14 +263,12 @@ export const AgentsSection = () => {
               che usano i migliori modelli LLM come Anthropic, OpenAI, Gemini.
             </p>
             <motion.a
-              href={WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="https://impresa.goitalia.eu"
               className="btn-premium inline-flex items-center gap-2"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              Scopri gli agenti
+              Inizia ora
               <ArrowRight className="w-5 h-5" />
             </motion.a>
           </div>
